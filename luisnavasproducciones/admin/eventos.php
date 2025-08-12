@@ -5,13 +5,12 @@ if(!isset($_SESSION['user'])) {
     exit;
 }
 
-include '../includes/config.php';
-include '../includes/functions.php';
+include dirname(__DIR__) . '/includes/config.php';
 
 // Procesar formulario
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Validar y subir imagen
-    $targetDir = "../assets/uploads/";
+    $targetDir = dirname(__DIR__) . "/assets/uploads/";
     $fileName = basename($_FILES["imagen"]["name"]);
     $targetFile = $targetDir . $fileName;
     $uploadOk = 1;

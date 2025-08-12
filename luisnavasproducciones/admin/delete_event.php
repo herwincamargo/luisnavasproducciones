@@ -5,7 +5,7 @@ if(!isset($_SESSION['user'])) {
     exit;
 }
 
-include '../includes/config.php';
+include dirname(__DIR__) . '/includes/config.php';
 
 if(isset($_GET['id'])) {
     $id = $_GET['id'];

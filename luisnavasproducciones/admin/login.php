@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../includes/config.php';
+include dirname(__DIR__) . '/includes/config.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
