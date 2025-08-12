@@ -4,7 +4,7 @@
 // 1. Datos de la Base de Datos
 define('DB_HOST', 'sdb-87.hosting.stackcp.net');
 define('DB_USER', 'lnavasusr');
-define('DB_PASS', '?YHmyBGe7%g');
+define('DB_PASS', 'npmyg0jkth');
 define('DB_NAME', 'lnavas-353131330d34');
 
 // 2. Conexión a la Base de Datos
