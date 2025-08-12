@@ -1,19 +1,22 @@
-</main> <!-- Cierra el <main> -->
+<!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">
+                <img src="https://luisnavasproducciones.com/logo-w.png" alt="Luis Navas Producciones" style="height: 50px; margin-bottom: 20px;">
+                <p>Creando experiencias memorables desde 2013</p>
+            </div>
 
-<footer class="site-footer">
-    <div class="container">
-        <div class="foot">
-            <!-- Puedes agregar aquí widgets, links, etc. -->
-            <div class="text-center">
-                <p>Luis Navas Producciones</p>
-                <p>Creamos experiencias inolvidables.</p>
+            <div class="footer-copy">
+                <p>&copy; <?php echo date("Y"); ?> Luis Navas Producciones. Todos los derechos reservados.</p>
             </div>
         </div>
-        <div class="copy text-center">
-            &copy; <?php echo date("Y"); ?> Luis Navas Producciones. Todos los derechos reservados.
-        </div>
-    </div>
-</footer>
+    </footer>
 
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/573015017283" class="float-whatsapp" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="assets/js/main.js"></script>
 </body>
 </html>

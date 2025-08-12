@@ -1,21 +1,28 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Efectos de scroll
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
+// Efecto de scroll suave
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
         });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.glass-effect').forEach(card => {
-        observer.observe(card);
     });
+});
 
-    // Botón WhatsApp flotante
-    const whatsappBtn = document.createElement('a');
-    whatsappBtn.href = 'https://wa.me/573015017283';
-    whatsappBtn.className = 'float-whatsapp';
-    whatsappBtn.innerHTML = '<i class="fab fa-whatsapp"></i>';
-    document.body.appendChild(whatsappBtn);
+// Formulario de contacto
+document.getElementById('form-contacto').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.');
+    this.reset();
+});
+
+// Fixed header on scroll
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('.site-header');
+    if (window.scrollY > 100) {
+        header.style.background = 'rgba(0, 0, 0, 0.9)';
+        header.style.padding = '15px 0';
+    } else {
+        header.style.background = 'transparent';
+        header.style.padding = '20px 0';
+    }
 });

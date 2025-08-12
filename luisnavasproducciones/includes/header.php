@@ -3,48 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luis Navas Producciones</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Luis Navas Producciones - Eventos Premium</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Inter:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/final-premium.css">
 </head>
 <body>
-    <header class="main-header">
-        <div class="container">
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-container">
             <div class="logo">
-                <a href="#inicio"><img src="assets/images/logo.png" alt="Luis Navas Producciones"></a>
+                <img src="https://luisnavasproducciones.com/logo-w.png" alt="Luis Navas Producciones">
             </div>
             <nav class="main-nav">
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#eventos">Eventos</a></li>
-                    <li><a href="#nosotros">Nosotros</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
+                <a href="index.php#inicio">Inicio</a>
+                <a href="eventos.php">Eventos</a>
+                <a href="index.php#nosotros">Nosotros</a>
+                <a href="index.php#servicios">Servicios</a>
+                <a href="index.php#contacto">Contacto</a>
             </nav>
-            <div class="hamburger">
-                <i class="fas fa-bars"></i>
-            </div>
         </div>
     </header>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const hamburger = document.querySelector('.hamburger');
-            const mainNav = document.querySelector('.main-nav');
-
-            hamburger.addEventListener('click', () => {
-                mainNav.classList.toggle('active');
-            });
-
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-        });
-    </script>
-<div class="container">
