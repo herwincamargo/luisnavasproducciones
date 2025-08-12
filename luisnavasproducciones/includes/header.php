@@ -8,18 +8,43 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <a href="index.php"><img src="assets/images/logo.png" alt="Luis Navas Producciones"></a>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="#inicio"><img src="assets/images/logo.png" alt="Luis Navas Producciones"></a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#eventos">Eventos</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
-        <nav>
-            <ul>
-                <li><a href="index.php">Inicio</a></li>
-                <li><a href="eventos.php">Eventos</a></li>
-                <li><a href="servicios.php">Servicios</a></li>
-                <li><a href="nosotros.php">Nuestra Historia</a></li>
-                <li><a href="galeria.php">Galería</a></li>
-                <li><a href="contacto.php">Contacto</a></li>
-            </ul>
-        </nav>
     </header>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const mainNav = document.querySelector('.main-nav');
+
+            hamburger.addEventListener('click', () => {
+                mainNav.classList.toggle('active');
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+<div class="container">

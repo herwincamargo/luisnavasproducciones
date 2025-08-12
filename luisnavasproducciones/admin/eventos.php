@@ -6,6 +6,7 @@ if(!isset($_SESSION['user'])) {
 }
 
 include '../includes/config.php';
+include '../includes/functions.php';
 
 // Procesar formulario
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -26,9 +27,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Subir archivo
     if ($uploadOk && move_uploaded_file($_FILES["imagen"]["tmp_name"], $targetFile)) {
-        $stmt = $conn->prepare("INSERT INTO eventos (nombre, imagen, fecha, lugar, ciudad, pais, descripcion) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $slug = slugify($_POST['nombre']);
+
+        $stmt = $conn->prepare("INSERT INTO eventos (nombre, slug, imagen, fecha, lugar, ciudad, pais, descripcion) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->execute([
             $_POST['nombre'],
+            $slug,
             $fileName,
             $_POST['fecha'],
             $_POST['lugar'],
@@ -71,10 +75,10 @@ $eventos = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <h2>Eventos Existentes</h2>
             <?php foreach($eventos as $evento): ?>
             <div class="admin-event-card">
-                <img src="../assets/uploads/<?= $evento['imagen'] ?>" width="100">
+                <img src="../assets/uploads/<?= htmlspecialchars($evento['imagen']) ?>" width="100">
                 <div>
-                    <h3><?= $evento['nombre'] ?></h3>
-                    <p><?= date('d/m/Y', strtotime($evento['fecha'])) ?> - <?= $evento['lugar'] ?></p>
+                    <h3><?= htmlspecialchars($evento['nombre']) ?></h3>
+                    <p><?= date('d/m/Y', strtotime($evento['fecha'])) ?> - <?= htmlspecialchars($evento['lugar']) ?></p>
                 </div>
                 <a href="delete_event.php?id=<?= $evento['id'] ?>" class="delete-btn">Eliminar</a>
             </div>

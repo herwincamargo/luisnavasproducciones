@@ -14,7 +14,7 @@ Este proyecto contiene el código fuente del sitio web de Luis Navas Produccione
 2. **Inicia los contenedores de Docker.**
    Abre una terminal en la raíz del proyecto y ejecuta el siguiente comando:
    ```bash
-   docker-compose up -d
+   docker compose up -d
    ```
    Este comando construirá la imagen de la aplicación, iniciará los contenedores del servidor web y la base de datos, y poblará la base de datos con la estructura de las tablas y un usuario administrador por defecto.
 
