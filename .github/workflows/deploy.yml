@@ -1,0 +1,31 @@
+name: Deploy via FTP
+
+on:
+  push:
+    branches: [ "feat/luisnavas-website" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Upload to FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ secrets.FTP_PATH }}
+          local-dir: luisnavasproducciones/
+          protocol: ftps
+          exclude: |
+            **/.git*
+            **/.github/**
+            **/node_modules/**
+            **/.env
+            **/vendor/**
+            assets/uploads/**
+            Dockerfile
+            docker-compose.yml
+            README.md
