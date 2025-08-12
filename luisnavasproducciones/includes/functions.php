@@ -1,0 +1,3 @@
+<?php
+// Funciones personalizadas aquí
+?>
