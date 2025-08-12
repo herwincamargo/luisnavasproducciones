@@ -4,10 +4,6 @@ RewriteBase /
 # Redirigir a la página de detalles del evento
 RewriteRule ^evento/([^/]+)/?$ evento-detalle.php?slug=$1 [L,QSA]
 
-# Forzar HTTPS
-RewriteCond %{HTTPS} !=on
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
 # Reglas para archivos y directorios existentes
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
