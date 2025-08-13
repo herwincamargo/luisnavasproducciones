@@ -39,47 +39,15 @@ document.querySelectorAll('a, button, .btn, input, .glass-effect').forEach(item 
     });
 });
 
-function initHeroCarousel() {
-    const slides = gsap.utils.toArray('.hero-text-slide');
-    if (slides.length === 0) return;
-
-    let currentSlide = 0;
-
-    // Set initial state for all slides
-    gsap.set(slides, { autoAlpha: 0, position: 'absolute', top: 0, left: 0, width: '100%' });
-
-    // Show the first slide
-    gsap.set(slides[0], { autoAlpha: 1 });
-    gsap.from(slides[0].children, { y: 30, opacity: 0, stagger: 0.2, ease: 'power3.out', duration: 1 });
-
-    function goToSlide(slideIndex) {
-        if (slideIndex === currentSlide) return;
-
-        const outgoingSlide = slides[currentSlide];
-        const incomingSlide = slides[slideIndex];
-
-        const tl = gsap.timeline();
-        tl.to(outgoingSlide.children, { y: -30, opacity: 0, stagger: 0.1, ease: 'power3.in', duration: 0.5 })
-          .set(outgoingSlide, { autoAlpha: 0 })
-          .set(incomingSlide, { autoAlpha: 1 })
-          .from(incomingSlide.children, { y: 30, opacity: 0, stagger: 0.2, ease: 'power3.out', duration: 1 });
-
-        currentSlide = slideIndex;
-    }
-
-    // Autoplay
-    if (slides.length > 1) {
-        setInterval(() => {
-            const nextSlide = (currentSlide + 1) % slides.length;
-            goToSlide(nextSlide);
-        }, 7000); // Change slide every 7 seconds
-    }
-}
-
 // Scroll Animations
 function initAnimations() {
     // Animación Hero
-    initHeroCarousel();
+    gsap.from('.hero-content', {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        ease: 'power3.out'
+    });
 
     // Animaciones de secciones
     gsap.utils.toArray('.section').forEach((section, i) => {
