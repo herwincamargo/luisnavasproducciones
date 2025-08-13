@@ -39,15 +39,46 @@ document.querySelectorAll('a, button, .btn, input, .glass-effect').forEach(item 
     });
 });
 
+function initHeroCarousel() {
+    const slides = gsap.utils.toArray('.hero-carousel-slide');
+    if (slides.length === 0) return;
+
+    let currentSlide = 0;
+
+    // Set initial slide
+    gsap.set(slides, { autoAlpha: 0 });
+    gsap.set(slides[0], { autoAlpha: 1 });
+    const initialContent = slides[0].querySelector('.hero-content');
+    gsap.from(initialContent.children, { y: 30, autoAlpha: 0, stagger: 0.2, ease: 'power3.out', duration: 1 });
+
+    function goToSlide(slideIndex) {
+        const outgoingSlide = slides[currentSlide];
+        const incomingSlide = slides[slideIndex];
+        const outgoingContent = outgoingSlide.querySelector('.hero-content');
+        const incomingContent = incomingSlide.querySelector('.hero-content');
+
+        const tl = gsap.timeline();
+        tl.to(outgoingContent.children, { y: -30, autoAlpha: 0, stagger: 0.1, ease: 'power3.in', duration: 0.5 })
+          .to(outgoingSlide, { autoAlpha: 0, duration: 1, ease: 'power2.inOut' }, "-=0.5")
+          .fromTo(incomingSlide, { autoAlpha: 0 }, { autoAlpha: 1, duration: 1, ease: 'power2.inOut' }, "-=1")
+          .from(incomingContent.children, { y: 30, autoAlpha: 0, stagger: 0.2, ease: 'power3.out', duration: 1 }, "-=0.5");
+
+        currentSlide = slideIndex;
+    }
+
+    // Autoplay
+    if (slides.length > 1) {
+        setInterval(() => {
+            const nextSlide = (currentSlide + 1) % slides.length;
+            goToSlide(nextSlide);
+        }, 7000); // Change slide every 7 seconds
+    }
+}
+
 // Scroll Animations
 function initAnimations() {
     // Animación Hero
-    gsap.from('.hero-content', {
-        y: 50,
-        opacity: 0,
-        duration: 1,
-        ease: 'power3.out'
-    });
+    initHeroCarousel();
 
     // Animaciones de secciones
     gsap.utils.toArray('.section').forEach((section, i) => {
