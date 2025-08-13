@@ -82,6 +82,10 @@ body {
     overflow-x: hidden;
 }
 
+main {
+    padding-top: 90px; /* Adjust this value based on header height */
+}
+
 h1, h2, h3, h4 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
