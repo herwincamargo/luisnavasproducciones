@@ -7,42 +7,74 @@ if(!isset($_SESSION['user'])) {
 
 include dirname(__DIR__) . '/includes/config.php';
 
+$error_message = '';
+$success_message = '';
+
 // Procesar formulario
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Validar y subir imagen
-    $targetDir = dirname(__DIR__) . "/assets/uploads/";
-    $fileName = basename($_FILES["imagen"]["name"]);
-    $targetFile = $targetDir . $fileName;
     $uploadOk = 1;
-    $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+    $error_message = '';
 
-    // Verificar si es imagen
-    $check = getimagesize($_FILES["imagen"]["tmp_name"]);
-    if($check !== false) {
-        $uploadOk = 1;
+    // --- Validación de la Imagen ---
+    if (isset($_FILES["imagen"]) && $_FILES["imagen"]["error"] == 0) {
+        $targetDir = dirname(__DIR__) . "/assets/uploads/";
+        $fileName = basename($_FILES["imagen"]["name"]);
+        $targetFile = $targetDir . $fileName;
+        $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+
+        // Verificar si es una imagen real
+        $check = getimagesize($_FILES["imagen"]["tmp_name"]);
+        if($check === false) {
+            $error_message = "El archivo no es una imagen.";
+            $uploadOk = 0;
+        }
+
+        // Permitir ciertos formatos de archivo
+        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
+            $error_message = "Lo sentimos, solo se permiten archivos JPG, JPEG, PNG & GIF.";
+            $uploadOk = 0;
+        }
     } else {
+        $error_message = "No se ha subido ninguna imagen o ha ocurrido un error en la subida.";
         $uploadOk = 0;
     }
 
-    // Subir archivo
-    if ($uploadOk && move_uploaded_file($_FILES["imagen"]["tmp_name"], $targetFile)) {
-        $slug = slugify($_POST['nombre']);
+    // --- Intentar Subir Archivo y Guardar en BD ---
+    if ($uploadOk == 1) {
+        if (move_uploaded_file($_FILES["imagen"]["tmp_name"], $targetFile)) {
+            try {
+                $slug = slugify($_POST['nombre']);
 
-        $stmt = $conn->prepare("INSERT INTO eventos (nombre, slug, imagen, fecha, lugar, ciudad, pais, descripcion) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->execute([
-            $_POST['nombre'],
-            $slug,
-            $fileName,
-            $_POST['fecha'],
-            $_POST['lugar'],
-            $_POST['ciudad'],
-            $_POST['pais'],
-            $_POST['descripcion']
-        ]);
+                $stmt = $conn->prepare("INSERT INTO eventos (nombre, slug, imagen, fecha, lugar, ciudad, pais, descripcion) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+                $stmt->execute([
+                    $_POST['nombre'],
+                    $slug,
+                    $fileName,
+                    $_POST['fecha'],
+                    $_POST['lugar'],
+                    $_POST['ciudad'],
+                    $_POST['pais'],
+                    $_POST['descripcion']
+                ]);
+                $success_message = "¡El evento '".htmlspecialchars($_POST['nombre'])."' ha sido creado con éxito!";
+
+            } catch (PDOException $e) {
+                // Capturar error de la base de datos (ej. slug duplicado)
+                if ($e->errorInfo[1] == 1062) { // 1062 es el código de error para entrada duplicada
+                    $error_message = "Error: Ya existe un evento con un nombre similar. Por favor, elige un nombre único.";
+                } else {
+                    $error_message = "Error de la base de datos: " . $e->getMessage();
+                }
+                // Si la BD falla, eliminar el archivo que ya se subió
+                unlink($targetFile);
+            }
+        } else {
+            $error_message = "Lo sentimos, hubo un error al subir tu archivo. Verifica los permisos de la carpeta 'assets/uploads/'.";
+        }
     }
 }
 
-// Obtener eventos
+// Obtener eventos para mostrar en la lista
 $stmt = $conn->prepare("SELECT * FROM eventos ORDER BY fecha DESC");
 $stmt->execute();
 $eventos = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -57,6 +89,15 @@ $eventos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <body>
     <div class="admin-container">
         <h1>Administrar Eventos</h1>
+        <a href="index.php">Volver al Panel</a>
+        <hr>
+
+        <?php if ($error_message): ?>
+            <p class="error"><?= $error_message ?></p>
+        <?php endif; ?>
+        <?php if ($success_message): ?>
+            <p class="success"><?= $success_message ?></p>
+        <?php endif; ?>
 
         <form method="post" enctype="multipart/form-data" class="event-form">
             <h2>Agregar Nuevo Evento</h2>
@@ -79,7 +120,7 @@ $eventos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <h3><?= htmlspecialchars($evento['nombre']) ?></h3>
                     <p><?= date('d/m/Y', strtotime($evento['fecha'])) ?> - <?= htmlspecialchars($evento['lugar']) ?></p>
                 </div>
-                <a href="delete_event.php?id=<?= $evento['id'] ?>" class="delete-btn">Eliminar</a>
+                <a href="delete_event.php?id=<?= $evento['id'] ?>" class="delete-btn" onclick="return confirm('¿Estás seguro de que quieres eliminar este evento?');">Eliminar</a>
             </div>
             <?php endforeach; ?>
         </div>
