@@ -197,8 +197,7 @@ a {
     max-width: 800px;
     position: relative;
     z-index: 2;
-    transform: translateY(50px);
-    opacity: 0;
+    opacity: 1; /* Asegurar visibilidad por defecto */
 }
 
 .hero-title {
