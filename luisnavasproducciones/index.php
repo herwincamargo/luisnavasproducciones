@@ -35,11 +35,15 @@ $hero_eventos = $stmt_hero->fetchAll(PDO::FETCH_ASSOC);
             <?php endforeach; ?>
         </div>
     <?php else: ?>
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Conciertos y Eventos Privados</h1>
-                <p class="hero-subtitle">Producción de eventos de primer nivel con logística integral, talento musical y suministro de licores para crear experiencias inolvidables.</p>
-                <a href="#contacto" class="btn btn-primary">Contáctanos</a>
+        <div class="hero-carousel">
+             <div class="hero-carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80');">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Próximamente Nuevos Eventos</h1>
+                        <p class="hero-subtitle">Estamos trabajando en nuevas experiencias inolvidables. ¡Vuelve pronto para no perderte ninguna actualización!</p>
+                        <a href="#contacto" class="btn btn-primary">Contáctanos</a>
+                    </div>
+                </div>
             </div>
         </div>
     <?php endif; ?>
@@ -207,6 +211,18 @@ $hero_eventos = $stmt_hero->fetchAll(PDO::FETCH_ASSOC);
             </div>
             <div class="gallery-item glass-effect">
                 <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Evento 6" loading="lazy">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="gallery-item glass-effect">
+                <img src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Evento 7" loading="lazy">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="gallery-item glass-effect">
+                <img src="https://images.unsplash.com/photo-1481886727447-8057b5571563?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Evento 8" loading="lazy">
                 <div class="gallery-overlay">
                     <i class="fas fa-search-plus"></i>
                 </div>
