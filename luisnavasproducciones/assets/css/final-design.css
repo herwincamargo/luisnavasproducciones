@@ -532,6 +532,7 @@ a {
     margin: 0 auto;
     position: relative;
     z-index: 2;
+    padding: 40px;
 }
 
 .cta-title {

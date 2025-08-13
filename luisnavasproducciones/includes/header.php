@@ -52,7 +52,7 @@
     <!-- Header -->
     <header class="site-header">
         <div class="container header-container">
-            <a href="/#inicio" class="logo">
+            <a href="https://luisnavasproducciones.com/" class="logo">
                 <img src="/assets/images/logo.png" alt="Luis Navas Producciones" loading="lazy">
             </a>
             <nav class="main-nav">

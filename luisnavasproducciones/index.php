@@ -39,7 +39,34 @@ include 'includes/config.php';
     <div class="container">
         <h2 class="section-title">Nuestros Servicios</h2>
         <div class="services-grid">
-            <!-- Items de servicios -->
+            <div class="service-card glass-effect">
+                <div class="service-content">
+                    <i class="fas fa-chess-queen"></i>
+                    <h3>Organización Integral</h3>
+                    <p>Coordinamos cada aspecto de tu evento con precisión y atención al detalle.</p>
+                </div>
+            </div>
+            <div class="service-card glass-effect">
+                <div class="service-content">
+                    <i class="fas fa-truck-moving"></i>
+                    <h3>Logística de Eventos</h3>
+                    <p>Gestión completa de infraestructura y operación para eventos impecables.</p>
+                </div>
+            </div>
+            <div class="service-card glass-effect">
+                <div class="service-content">
+                    <i class="fas fa-music"></i>
+                    <h3>Producción Musical</h3>
+                    <p>Talentos musicales de alta calidad para crear la atmósfera perfecta.</p>
+                </div>
+            </div>
+            <div class="service-card glass-effect">
+                <div class="service-content">
+                    <i class="fas fa-wine-glass-alt"></i>
+                    <h3>Abastecimiento Premium</h3>
+                    <p>Selección exclusiva de licores y bebidas para tu evento.</p>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -131,11 +158,49 @@ include 'includes/config.php';
         <h2 class="section-title">Contáctanos</h2>
         <div class="contact-grid">
             <div class="contact-info">
-                <!-- ... -->
+                <h3>Información de Contacto</h3>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                    <div>
+                        <h4>Teléfono</h4>
+                        <p>+57 301 5017283</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <div>
+                        <h4>Email</h4>
+                        <p>info@luisnavasproducciones.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div>
+                        <h4>Ubicación</h4>
+                        <p>Barranquilla, Atlántico, Colombia</p>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/luisnavasb/" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
             </div>
             <div class="contact-form">
-                <form id="form-contacto">
-                    <!-- ... -->
+                <form id="form-contacto" action="/enviar.php" method="POST">
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo</label>
+                        <input type="text" id="nombre" name="nombre" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
                 </form>
             </div>
         </div>

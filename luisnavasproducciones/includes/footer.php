@@ -4,7 +4,7 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-logo">
-                <a href="#inicio">
+                <a href="https://luisnavasproducciones.com/">
                     <img src="/assets/images/logo.png" alt="Luis Navas Producciones" loading="lazy">
                 </a>
                 <p>Creando experiencias memorables desde 2013</p>
