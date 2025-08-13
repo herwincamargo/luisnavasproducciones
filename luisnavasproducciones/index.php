@@ -5,6 +5,9 @@ include 'includes/config.php';
 
 <!-- Hero Section -->
 <section id="inicio" class="hero">
+    <video autoplay muted loop playsinline class="hero-video" loading="lazy">
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-concert-crowd-dancing-in-darkness-3066-large.mp4" type="video/mp4">
+    </video>
     <div class="container">
         <div class="hero-content">
             <h1 class="hero-title">Experiencias que trascienden</h1>
@@ -19,7 +22,7 @@ include 'includes/config.php';
     <div class="container">
         <div class="about-content">
             <div class="about-image glass-effect">
-                <img src="/assets/images/placeholder-about.jpg" alt="Equipo Luis Navas Producciones">
+                <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Equipo Luis Navas Producciones" loading="lazy">
             </div>
             <div class="about-text">
                 <h2>Nuestra Historia</h2>
@@ -35,31 +38,8 @@ include 'includes/config.php';
 <section id="servicios" class="section services-section">
     <div class="container">
         <h2 class="section-title">Nuestros Servicios</h2>
-
         <div class="services-grid">
-            <div class="service-card glass-effect">
-                <i class="fas fa-chess-queen"></i>
-                <h3>Organización Integral</h3>
-                <p>Coordinamos cada aspecto de tu evento con precisión y atención al detalle.</p>
-            </div>
-
-            <div class="service-card glass-effect">
-                <i class="fas fa-truck-moving"></i>
-                <h3>Logística de Eventos</h3>
-                <p>Gestión completa de infraestructura y operación para eventos impecables.</p>
-            </div>
-
-            <div class="service-card glass-effect">
-                <i class="fas fa-music"></i>
-                <h3>Producción Musical</h3>
-                <p>Talentos musicales de alta calidad para crear la atmósfera perfecta.</p>
-            </div>
-
-            <div class="service-card glass-effect">
-                <i class="fas fa-wine-glass-alt"></i>
-                <h3>Abastecimiento Premium</h3>
-                <p>Selección exclusiva de licores y bebidas para tu evento.</p>
-            </div>
+            <!-- Items de servicios -->
         </div>
     </div>
 </section>
@@ -80,23 +60,67 @@ include 'includes/config.php';
             } else {
                 foreach($eventos as $evento) {
                     echo '
-                    <a href="/evento/'.htmlspecialchars($evento['slug']).'" class="event-card glass-effect">
-                        <img src="/assets/uploads/'.htmlspecialchars($evento['imagen']).'" alt="'.htmlspecialchars($evento['nombre']).'">
-                        <div class="event-info">
+                    <div class="event-card">
+                        <a href="/evento/'.htmlspecialchars($evento['slug']).'" class="event-image-link">
+                            <img src="/assets/uploads/'.htmlspecialchars($evento['imagen']).'" alt="'.htmlspecialchars($evento['nombre']).'" loading="lazy">
+                        </a>
+                        <div class="event-info-container">
                             <h3>'.htmlspecialchars($evento['nombre']).'</h3>
-                            <div class="event-date">
-                                <i class="far fa-calendar-alt"></i>
-                                <span>'.date('d M Y', strtotime($evento['fecha'])).'</span>
+                            <div class="event-meta">
+                                <div class="event-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>'.date('d M Y', strtotime($evento['fecha'])).'</span>
+                                </div>
+                                <div class="event-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>'.htmlspecialchars($evento['ciudad']).'</span>
+                                </div>
                             </div>
-                            <div class="event-location">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>'.htmlspecialchars($evento['ciudad']).'</span>
-                            </div>
+                            <p class="event-description">'.substr(htmlspecialchars($evento['descripcion']), 0, 100).'...</p>
+                            <a href="/evento/'.htmlspecialchars($evento['slug']).'" class="btn-whatsapp">
+                                Más información
+                            </a>
                         </div>
-                    </a>';
+                    </div>';
                 }
             }
             ?>
+        </div>
+        <div class="text-center" style="margin-top: 40px;">
+            <a href="/eventos.php" class="btn btn-primary">Ver Todos los Eventos</a>
+        </div>
+    </div>
+</section>
+
+<!-- Galería Section -->
+<section id="galeria" class="section gallery-section">
+    <div class="container">
+        <h2 class="section-title">Galería de Eventos</h2>
+        <div class="gallery-grid">
+            <!-- Imágenes de la galería -->
+        </div>
+    </div>
+</section>
+
+<!-- Patrocinadores Section -->
+<section class="sponsors-section">
+    <div class="container">
+        <h3 class="sponsors-title">Nuestros Aliados</h3>
+        <div class="sponsors-grid">
+            <!-- Logos de patrocinadores -->
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content glass-effect">
+            <h2 class="cta-title">Organiza tu Concierto o Evento Privado con Nosotros</h2>
+            <p class="cta-subtitle">Transformamos tus ideas en experiencias inolvidables con producción profesional y atención personalizada.</p>
+            <a href="https://wa.me/573015017283?text=Hola%20Luis%20Navas%20Producciones,%20quiero%20organizar%20un%20evento%20privado%20o%20concierto" class="btn btn-primary" target="_blank">
+                Contáctanos ahora
+            </a>
         </div>
     </div>
 </section>
@@ -107,11 +131,10 @@ include 'includes/config.php';
         <h2 class="section-title">Contáctanos</h2>
         <div class="contact-grid">
             <div class="contact-info">
-                <h3>Información de Contacto</h3>
                 <!-- ... -->
             </div>
             <div class="contact-form">
-                <form id="form-contacto" action="/enviar.php" method="POST">
+                <form id="form-contacto">
                     <!-- ... -->
                 </form>
             </div>
