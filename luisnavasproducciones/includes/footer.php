@@ -2,7 +2,7 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-logo">
-                <img src="https://luisnavasproducciones.com/logo-w.png" alt="Luis Navas Producciones" style="height: 50px; margin-bottom: 20px;">
+                <img src="/assets/images/logo.png" alt="Luis Navas Producciones" style="height: 50px; margin-bottom: 20px;">
                 <p>Creando experiencias memorables desde 2013</p>
             </div>
 
@@ -17,6 +17,6 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <script src="assets/js/main.js"></script>
+    <script src="/assets/js/main.js"></script>
 </body>
 </html>

@@ -31,7 +31,7 @@ if (!$evento) {
 
         <div class="grid cols-2 mt-6" style="gap: 40px; align-items: flex-start;">
             <div>
-                <img src="assets/uploads/<?= htmlspecialchars($evento['imagen']) ?>" alt="<?= htmlspecialchars($evento['nombre']) ?>" style="border-radius: var(--r-lg); width: 100%;">
+                <img src="/assets/uploads/<?= htmlspecialchars($evento['imagen']) ?>" alt="<?= htmlspecialchars($evento['nombre']) ?>" style="border-radius: var(--r-lg); width: 100%;">
             </div>
             <div class="card">
                 <h3>Descripción del Evento</h3>

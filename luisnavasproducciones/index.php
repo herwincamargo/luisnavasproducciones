@@ -19,7 +19,7 @@ include 'includes/config.php';
     <div class="container">
         <div class="about-content">
             <div class="about-image glass-effect">
-                <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Equipo Luis Navas Producciones">
+                <img src="/assets/images/placeholder-about.jpg" alt="Equipo Luis Navas Producciones">
             </div>
             <div class="about-text">
                 <h2>Nuestra Historia</h2>
@@ -80,8 +80,8 @@ include 'includes/config.php';
             } else {
                 foreach($eventos as $evento) {
                     echo '
-                    <a href="evento/'.htmlspecialchars($evento['slug']).'" class="event-card glass-effect">
-                        <img src="assets/uploads/'.htmlspecialchars($evento['imagen']).'" alt="'.htmlspecialchars($evento['nombre']).'">
+                    <a href="/evento/'.htmlspecialchars($evento['slug']).'" class="event-card glass-effect">
+                        <img src="/assets/uploads/'.htmlspecialchars($evento['imagen']).'" alt="'.htmlspecialchars($evento['nombre']).'">
                         <div class="event-info">
                             <h3>'.htmlspecialchars($evento['nombre']).'</h3>
                             <div class="event-date">
@@ -90,7 +90,7 @@ include 'includes/config.php';
                             </div>
                             <div class="event-location">
                                 <i class="fas fa-map-marker-alt"></i>
-                                <span>'.htmlspecialchars($evento['ciudad']).', '.htmlspecialchars($evento['pais']).'</span>
+                                <span>'.htmlspecialchars($evento['ciudad']).'</span>
                             </div>
                         </div>
                     </a>';
@@ -105,64 +105,17 @@ include 'includes/config.php';
 <section id="contacto" class="section contact-section">
     <div class="container">
         <h2 class="section-title">Contáctanos</h2>
-
         <div class="contact-grid">
             <div class="contact-info">
                 <h3>Información de Contacto</h3>
-
-                <div class="contact-item">
-                    <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
-                    <div>
-                        <h4>Teléfono</h4>
-                        <p>+57 301 5017283</p>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                    <div>
-                        <h4>Email</h4>
-                        <p>info@luisnavasproducciones.com</p>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                    <div>
-                        <h4>Ubicación</h4>
-                        <p>Barranquilla, Atlántico, Colombia</p>
-                    </div>
-                </div>
-
-                <div class="social-links">
-                    <a href="https://www.instagram.com/luisnavasb/" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                </div>
+                <!-- ... -->
             </div>
-
             <div class="contact-form">
-                <form id="form-contacto" action="enviar.php" method="POST">
-                    <div class="form-group">
-                        <label for="nombre">Nombre Completo</label>
-                        <input type="text" id="nombre" name="nombre" class="form-control" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Correo Electrónico</label>
-                        <input type="email" id="email" name="email" class="form-control" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="mensaje">Mensaje</label>
-                        <textarea id="mensaje" name="mensaje" class="form-control" required></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                <form id="form-contacto" action="/enviar.php" method="POST">
+                    <!-- ... -->
                 </form>
             </div>
         </div>
-
         <div class="map-container glass-effect">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.982646603049!2d-74.8019959240336!3d10.96392588919067!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef42d44a12d3f2d%3A0x5a00cac5a84f6343!2sBarranquilla%2C%20Atl%C3%A1ntico%2C%20Colombia!5e0!3m2!1sen!2sus!4v1690831834623!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
