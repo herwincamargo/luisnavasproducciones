@@ -40,28 +40,29 @@ document.querySelectorAll('a, button, .btn, input, .glass-effect').forEach(item 
 });
 
 function initHeroCarousel() {
-    const slides = gsap.utils.toArray('.hero-carousel-slide');
+    const slides = gsap.utils.toArray('.hero-text-slide');
     if (slides.length === 0) return;
 
     let currentSlide = 0;
 
-    // Set initial slide
-    gsap.set(slides, { autoAlpha: 0 });
+    // Set initial state for all slides
+    gsap.set(slides, { autoAlpha: 0, position: 'absolute', top: 0, left: 0, width: '100%' });
+
+    // Show the first slide
     gsap.set(slides[0], { autoAlpha: 1 });
-    const initialContent = slides[0].querySelector('.hero-content');
-    gsap.from(initialContent.children, { y: 30, autoAlpha: 0, stagger: 0.2, ease: 'power3.out', duration: 1 });
+    gsap.from(slides[0].children, { y: 30, opacity: 0, stagger: 0.2, ease: 'power3.out', duration: 1 });
 
     function goToSlide(slideIndex) {
+        if (slideIndex === currentSlide) return;
+
         const outgoingSlide = slides[currentSlide];
         const incomingSlide = slides[slideIndex];
-        const outgoingContent = outgoingSlide.querySelector('.hero-content');
-        const incomingContent = incomingSlide.querySelector('.hero-content');
 
         const tl = gsap.timeline();
-        tl.to(outgoingContent.children, { y: -30, autoAlpha: 0, stagger: 0.1, ease: 'power3.in', duration: 0.5 })
-          .to(outgoingSlide, { autoAlpha: 0, duration: 1, ease: 'power2.inOut' }, "-=0.5")
-          .fromTo(incomingSlide, { autoAlpha: 0 }, { autoAlpha: 1, duration: 1, ease: 'power2.inOut' }, "-=1")
-          .from(incomingContent.children, { y: 30, autoAlpha: 0, stagger: 0.2, ease: 'power3.out', duration: 1 }, "-=0.5");
+        tl.to(outgoingSlide.children, { y: -30, opacity: 0, stagger: 0.1, ease: 'power3.in', duration: 0.5 })
+          .set(outgoingSlide, { autoAlpha: 0 })
+          .set(incomingSlide, { autoAlpha: 1 })
+          .from(incomingSlide.children, { y: 30, opacity: 0, stagger: 0.2, ease: 'power3.out', duration: 1 });
 
         currentSlide = slideIndex;
     }

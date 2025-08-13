@@ -10,43 +10,35 @@ $hero_eventos = $stmt_hero->fetchAll(PDO::FETCH_ASSOC);
 
 <!-- Hero Section -->
 <section id="inicio" class="hero">
-    <?php if (!empty($hero_eventos)): ?>
-        <div class="hero-carousel">
-            <?php foreach($hero_eventos as $index => $evento): ?>
-                <div class="hero-carousel-slide" style="background-image: url('/assets/uploads/<?php echo htmlspecialchars($evento['imagen']); ?>');">
-                    <div class="container">
-                        <div class="hero-content">
-                            <h1 class="hero-title"><?php echo htmlspecialchars($evento['nombre']); ?></h1>
-                            <p class="hero-subtitle"><?php echo substr(htmlspecialchars($evento['descripcion']), 0, 150); ?>...</p>
-                            <div class="hero-event-meta">
-                                <div class="event-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span><?php echo date('d M Y', strtotime($evento['fecha'])); ?></span>
-                                </div>
-                                <div class="event-location">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <span><?php echo htmlspecialchars($evento['ciudad']); ?></span>
-                                </div>
+    <div class="container">
+        <div class="hero-content-wrapper">
+            <?php if (!empty($hero_eventos)): ?>
+                <?php foreach($hero_eventos as $index => $evento): ?>
+                    <div class="hero-text-slide">
+                        <h1 class="hero-title"><?php echo htmlspecialchars($evento['nombre']); ?></h1>
+                        <p class="hero-subtitle"><?php echo substr(htmlspecialchars($evento['descripcion']), 0, 150); ?>...</p>
+                        <div class="hero-event-meta">
+                            <div class="event-date">
+                                <i class="far fa-calendar-alt"></i>
+                                <span><?php echo date('d M Y', strtotime($evento['fecha'])); ?></span>
                             </div>
-                            <a href="/evento/<?php echo htmlspecialchars($evento['slug']); ?>" class="btn btn-primary">Más información</a>
+                            <div class="event-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span><?php echo htmlspecialchars($evento['ciudad']); ?></span>
+                            </div>
                         </div>
+                        <a href="/evento/<?php echo htmlspecialchars($evento['slug']); ?>" class="btn btn-primary">Más información</a>
                     </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <div class="hero-text-slide">
+                    <h1 class="hero-title">Conciertos y Eventos Privados</h1>
+                    <p class="hero-subtitle">Producción de eventos de primer nivel con logística integral, talento musical y suministro de licores para crear experiencias inolvidables.</p>
+                    <a href="#contacto" class="btn btn-primary">Contáctanos</a>
                 </div>
-            <?php endforeach; ?>
+            <?php endif; ?>
         </div>
-    <?php else: ?>
-        <div class="hero-carousel">
-             <div class="hero-carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80');">
-                <div class="container">
-                    <div class="hero-content">
-                        <h1 class="hero-title">Próximamente Nuevos Eventos</h1>
-                        <p class="hero-subtitle">Estamos trabajando en nuevas experiencias inolvidables. ¡Vuelve pronto para no perderte ninguna actualización!</p>
-                        <a href="#contacto" class="btn btn-primary">Contáctanos</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    <?php endif; ?>
+    </div>
 </section>
 
 <!-- Nosotros Section -->
