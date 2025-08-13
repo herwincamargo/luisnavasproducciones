@@ -10,7 +10,7 @@ $eventos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <div class="section">
     <div class="container">
-        <div class="hero text-center" style="min-height: 30vh; height: auto; padding: 60px 0;">
+        <div class="page-title text-center" style="padding: 60px 0; background: var(--dark-gray); border-radius: 12px;">
             <h1 class="hero-title">Todos Nuestros Eventos</h1>
             <p class="hero-subtitle">Explora nuestro archivo completo de eventos pasados y futuros.</p>
         </div>

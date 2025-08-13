@@ -21,8 +21,8 @@ if (!$evento) {
 
 <div class="section">
     <div class="container">
-        <!-- Hero simple para el título del evento -->
-        <div class="hero text-center" style="min-height: 30vh; height: auto; padding: 60px 0;">
+        <!-- Título de página simple con fondo oscuro -->
+        <div class="page-title text-center" style="padding: 60px 0; background: var(--dark-gray); border-radius: 12px;">
              <h1 class="hero-title"><?= htmlspecialchars($evento['nombre']) ?></h1>
              <p class="hero-subtitle">
                 <i class="far fa-calendar-alt"></i> <?= date('d F, Y', strtotime($evento['fecha'])) ?>
