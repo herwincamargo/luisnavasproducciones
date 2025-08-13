@@ -2,7 +2,7 @@ name: Deploy via FTP
 
 on:
   push:
-    branches: [ "feat/luisnavas-website" ]
+    branches: [ "main" ]
 
 jobs:
   deploy:
@@ -17,15 +17,11 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: ${{ secrets.FTP_PATH }}
-          local-dir: luisnavasproducciones/
+          local-dir: ./luisnavasproducciones/
           protocol: ftp
           exclude: |
             **/.git*
-            **/.github/**
+            **/.git*/**
             **/node_modules/**
-            **/.env
-            **/vendor/**
-            assets/uploads/**
-            Dockerfile
-            docker-compose.yml
+            .github/
             README.md
