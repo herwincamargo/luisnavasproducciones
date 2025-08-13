@@ -5,9 +5,6 @@ include 'includes/config.php';
 
 <!-- Hero Section -->
 <section id="inicio" class="hero">
-    <video autoplay muted loop playsinline class="hero-video" loading="lazy">
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-concert-crowd-dancing-in-darkness-3066-large.mp4" type="video/mp4">
-    </video>
     <div class="container">
         <div class="hero-content">
             <h1 class="hero-title">Experiencias que trascienden</h1>
@@ -21,9 +18,6 @@ include 'includes/config.php';
 <section id="nosotros" class="section about-section">
     <div class="container">
         <div class="about-content">
-            <div class="about-image glass-effect">
-                <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Equipo Luis Navas Producciones" loading="lazy">
-            </div>
             <div class="about-text">
                 <h2>Nuestra Historia</h2>
                 <p>Con más de 10 años de experiencia, Luis Navas Producciones ha transformado ideas en eventos inolvidables en todo el Atlántico y Colombia. Desde nuestros inicios, nos hemos dedicado a brindar soluciones completas y personalizadas para cada cliente.</p>
