@@ -7,8 +7,8 @@ include 'includes/config.php';
 <section id="inicio" class="hero">
     <div class="container">
         <div class="hero-content">
-            <h1 class="hero-title">Experiencias que trascienden</h1>
-            <p class="hero-subtitle">Más de 10 años creando eventos memorables en Colombia con producción de primer nivel y atención personalizada.</p>
+            <h1 class="hero-title">Conciertos y Eventos Privados</h1>
+            <p class="hero-subtitle">Producción de eventos de primer nivel con logística integral, talento musical y suministro de licores para crear experiencias inolvidables.</p>
             <a href="#contacto" class="btn btn-primary">Contáctanos</a>
         </div>
     </div>
