@@ -1,23 +1,57 @@
 <?php
 include 'includes/header.php';
 include 'includes/config.php';
+
+// Obtener los últimos 3 eventos para el carrusel del hero
+$stmt_hero = $conn->prepare("SELECT * FROM eventos ORDER BY fecha DESC LIMIT 3");
+$stmt_hero->execute();
+$hero_eventos = $stmt_hero->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!-- Hero Section -->
 <section id="inicio" class="hero">
-    <div class="container">
-        <div class="hero-content">
-            <h1 class="hero-title">Conciertos y Eventos Privados</h1>
-            <p class="hero-subtitle">Producción de eventos de primer nivel con logística integral, talento musical y suministro de licores para crear experiencias inolvidables.</p>
-            <a href="#contacto" class="btn btn-primary">Contáctanos</a>
+    <?php if (!empty($hero_eventos)): ?>
+        <div class="hero-carousel">
+            <?php foreach($hero_eventos as $index => $evento): ?>
+                <div class="hero-carousel-slide" style="background-image: url('/assets/uploads/<?php echo htmlspecialchars($evento['imagen']); ?>');">
+                    <div class="container">
+                        <div class="hero-content">
+                            <h1 class="hero-title"><?php echo htmlspecialchars($evento['nombre']); ?></h1>
+                            <p class="hero-subtitle"><?php echo substr(htmlspecialchars($evento['descripcion']), 0, 150); ?>...</p>
+                            <div class="hero-event-meta">
+                                <div class="event-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span><?php echo date('d M Y', strtotime($evento['fecha'])); ?></span>
+                                </div>
+                                <div class="event-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span><?php echo htmlspecialchars($evento['ciudad']); ?></span>
+                                </div>
+                            </div>
+                            <a href="/evento/<?php echo htmlspecialchars($evento['slug']); ?>" class="btn btn-primary">Más información</a>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
         </div>
-    </div>
+    <?php else: ?>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Conciertos y Eventos Privados</h1>
+                <p class="hero-subtitle">Producción de eventos de primer nivel con logística integral, talento musical y suministro de licores para crear experiencias inolvidables.</p>
+                <a href="#contacto" class="btn btn-primary">Contáctanos</a>
+            </div>
+        </div>
+    <?php endif; ?>
 </section>
 
 <!-- Nosotros Section -->
 <section id="nosotros" class="section about-section">
     <div class="container">
         <div class="about-content">
+            <div class="about-image glass-effect">
+                <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Equipo Luis Navas Producciones" loading="lazy">
+            </div>
             <div class="about-text">
                 <h2>Nuestra Historia</h2>
                 <p>Con más de 10 años de experiencia, Luis Navas Producciones ha transformado ideas en eventos inolvidables en todo el Atlántico y Colombia. Desde nuestros inicios, nos hemos dedicado a brindar soluciones completas y personalizadas para cada cliente.</p>
@@ -28,7 +62,7 @@ include 'includes/config.php';
     </div>
 </section>
 
-<!-- Servicios Section -->
+<!-- Servicios Section - 4 columnas -->
 <section id="servicios" class="section services-section">
     <div class="container">
         <h2 class="section-title">Nuestros Servicios</h2>
@@ -39,26 +73,49 @@ include 'includes/config.php';
                     <h3>Organización Integral</h3>
                     <p>Coordinamos cada aspecto de tu evento con precisión y atención al detalle.</p>
                 </div>
+                <div class="service-cta">
+                    <a href="https://wa.me/573015017283?text=Hola%20Luis%20Navas%20Producciones,%20quiero%20más%20información%20sobre%20Organización%20Integral" class="btn-whatsapp">
+                        Más información
+                    </a>
+                </div>
             </div>
+
             <div class="service-card glass-effect">
                 <div class="service-content">
                     <i class="fas fa-truck-moving"></i>
                     <h3>Logística de Eventos</h3>
                     <p>Gestión completa de infraestructura y operación para eventos impecables.</p>
                 </div>
+                <div class="service-cta">
+                    <a href="https://wa.me/573015017283?text=Hola%20Luis%20Navas%20Producciones,%20quiero%20más%20información%20sobre%20Logística%20de%20Eventos" class="btn-whatsapp">
+                        Más información
+                    </a>
+                </div>
             </div>
+
             <div class="service-card glass-effect">
                 <div class="service-content">
                     <i class="fas fa-music"></i>
                     <h3>Producción Musical</h3>
                     <p>Talentos musicales de alta calidad para crear la atmósfera perfecta.</p>
                 </div>
+                <div class="service-cta">
+                    <a href="https://wa.me/573015017283?text=Hola%20Luis%20Navas%20Producciones,%20quiero%20más%20información%20sobre%20Producción%20Musical" class="btn-whatsapp">
+                        Más información
+                    </a>
+                </div>
             </div>
+
             <div class="service-card glass-effect">
                 <div class="service-content">
                     <i class="fas fa-wine-glass-alt"></i>
                     <h3>Abastecimiento Premium</h3>
                     <p>Selección exclusiva de licores y bebidas para tu evento.</p>
+                </div>
+                <div class="service-cta">
+                    <a href="https://wa.me/573015017283?text=Hola%20Luis%20Navas%20Producciones,%20quiero%20más%20información%20sobre%20Abastecimiento%20Premium" class="btn-whatsapp">
+                        Más información
+                    </a>
                 </div>
             </div>
         </div>
@@ -98,7 +155,7 @@ include 'includes/config.php';
                                 </div>
                             </div>
                             <p class="event-description">'.substr(htmlspecialchars($evento['descripcion']), 0, 100).'...</p>
-                            <a href="/evento/'.htmlspecialchars($evento['slug']).'" class="btn-whatsapp">
+                            <a href="/evento/'.htmlspecialchars($evento['slug']).'" class="btn-event-details">
                                 Más información
                             </a>
                         </div>
@@ -118,7 +175,42 @@ include 'includes/config.php';
     <div class="container">
         <h2 class="section-title">Galería de Eventos</h2>
         <div class="gallery-grid">
-            <!-- Imágenes de la galería -->
+            <div class="gallery-item glass-effect">
+                <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Evento 1" loading="lazy">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="gallery-item glass-effect">
+                <img src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Evento 2" loading="lazy">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="gallery-item glass-effect">
+                <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Evento 3" loading="lazy">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="gallery-item glass-effect">
+                <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Evento 4" loading="lazy">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="gallery-item glass-effect">
+                <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Evento 5" loading="lazy">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="gallery-item glass-effect">
+                <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Evento 6" loading="lazy">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -128,7 +220,24 @@ include 'includes/config.php';
     <div class="container">
         <h3 class="sponsors-title">Nuestros Aliados</h3>
         <div class="sponsors-grid">
-            <!-- Logos de patrocinadores -->
+            <div class="sponsor-item glass-effect">
+                <img src="https://via.placeholder.com/150x80?text=Patrocinador+1" alt="Patrocinador 1" loading="lazy">
+            </div>
+            <div class="sponsor-item glass-effect">
+                <img src="https://via.placeholder.com/150x80?text=Patrocinador+2" alt="Patrocinador 2" loading="lazy">
+            </div>
+            <div class="sponsor-item glass-effect">
+                <img src="https://via.placeholder.com/150x80?text=Patrocinador+3" alt="Patrocinador 3" loading="lazy">
+            </div>
+            <div class="sponsor-item glass-effect">
+                <img src="https://via.placeholder.com/150x80?text=Patrocinador+4" alt="Patrocinador 4" loading="lazy">
+            </div>
+            <div class="sponsor-item glass-effect">
+                <img src="https://via.placeholder.com/150x80?text=Patrocinador+5" alt="Patrocinador 5" loading="lazy">
+            </div>
+            <div class="sponsor-item glass-effect">
+                <img src="https://via.placeholder.com/150x80?text=Patrocinador+6" alt="Patrocinador 6" loading="lazy">
+            </div>
         </div>
     </div>
 </section>
@@ -194,7 +303,9 @@ include 'includes/config.php';
                         <label for="mensaje">Mensaje</label>
                         <textarea id="mensaje" name="mensaje" class="form-control" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                    </button>
                 </form>
             </div>
         </div>
