@@ -11,7 +11,7 @@
             </div>
 
             <div class="footer-links">
-                <a href="/#inicio">Inicio</a>
+                <a href="https://luisnavasproducciones.com/">Inicio</a>
                 <a href="/eventos.php">Eventos</a>
                 <a href="/#nosotros">Nosotros</a>
                 <a href="/#servicios">Servicios</a>

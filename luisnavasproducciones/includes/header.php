@@ -7,6 +7,9 @@
     <meta name="description" content="Expertos en producción de eventos y conciertos en Colombia. Más de 10 años creando experiencias memorables con logística integral y talento musical.">
     <meta name="keywords" content="producción de eventos, conciertos Colombia, organización de eventos, logística eventos, talento musical">
 
+    <!-- Favicon -->
+    <link rel="icon" href="https://luisnavasproducciones.com/assets/images/favicon.png" type="image/png">
+
     <!-- Schema Markup -->
     <script type="application/ld+json">
     {
@@ -56,7 +59,7 @@
                 <img src="/assets/images/logo.png" alt="Luis Navas Producciones" loading="lazy">
             </a>
             <nav class="main-nav">
-                <a href="/#inicio">Inicio</a>
+                <a href="https://luisnavasproducciones.com/">Inicio</a>
                 <a href="/eventos.php">Eventos</a>
                 <a href="/#nosotros">Nosotros</a>
                 <a href="/#servicios">Servicios</a>
