@@ -140,7 +140,7 @@
         flex-direction: column;
         text-align: center;
     }
-
+    
     .cta-text {
         padding-right: 0;
         margin-bottom: 20px;
@@ -151,7 +151,7 @@
     .services-grid {
         grid-template-columns: 1fr;
     }
-
+    
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
     }
