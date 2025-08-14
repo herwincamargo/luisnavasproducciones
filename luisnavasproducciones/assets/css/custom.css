@@ -9,8 +9,8 @@
 .hero-content-wrapper {
     position: relative;
     width: 100%;
-    max-width: 800px; /* O el ancho que prefieras */
-    min-height: 300px; /* Altura mínima para evitar colapso */
+    max-width: 800px;
+    min-height: 300px;
 }
 
 .hero-text-slide {
@@ -20,6 +20,10 @@
     position: absolute;
     top: 0;
     left: 0;
+}
+
+.hero-subtitle {
+    text-align: center;
 }
 
 .hero-event-meta {
