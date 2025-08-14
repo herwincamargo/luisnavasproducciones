@@ -17,11 +17,15 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: ${{ secrets.FTP_PATH }}
-          local-dir: ./luisnavasproducciones/
+          local-dir: luisnavasproducciones/
           protocol: ftp
           exclude: |
             **/.git*
-            **/.git*/**
+            **/.github/**
             **/node_modules/**
-            .github/
+            **/.env
+            **/vendor/**
+            assets/uploads/**
+            Dockerfile
+            docker-compose.yml
             README.md

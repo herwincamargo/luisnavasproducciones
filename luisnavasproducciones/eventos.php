@@ -15,7 +15,7 @@ $eventos = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <p class="hero-subtitle">Explora nuestro archivo completo de eventos pasados y futuros.</p>
         </div>
 
-        <div class="events-grid mt-6">
+        <div class="events-grid">
             <?php if (empty($eventos)): ?>
                 <p class="text-center">No hay eventos para mostrar.</p>
             <?php else: ?>
@@ -37,11 +37,9 @@ $eventos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             </div>
                         </div>
                         <p class="event-description"><?= substr(htmlspecialchars($evento['descripcion']), 0, 100) ?>...</p>
-                        <div class="event-button-container">
-                            <a href="/evento/<?= htmlspecialchars($evento['slug']) ?>" class="btn-event-details">
-                                Más información
-                            </a>
-                        </div>
+                        <a href="/evento/<?= htmlspecialchars($evento['slug']) ?>" class="btn-event-details">
+                            Más información
+                        </a>
                     </div>
                 </div>
                 <?php endforeach; ?>
