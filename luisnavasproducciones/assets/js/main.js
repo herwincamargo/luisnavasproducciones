@@ -41,45 +41,56 @@ document.querySelectorAll('a, button, .btn, input, .glass-effect').forEach(item 
 
 function initHeroCarousel() {
     const slides = gsap.utils.toArray('.hero-text-slide');
-    if (slides.length === 0) return;
+    if (slides.length < 2) {
+        // If 0 or 1 slide, just show the first one and stop.
+        if (slides.length === 1) {
+            gsap.set(slides[0], { autoAlpha: 1 });
+        }
+        return;
+    }
 
     let currentSlide = 0;
     let autoPlayInterval;
+    let isPaused = false;
 
     // Set initial state for all slides
     gsap.set(slides, { autoAlpha: 0, position: 'absolute', top: 0, left: 0, width: '100%' });
 
     // Show the first slide
-    if (slides.length > 0) {
-        gsap.set(slides[0], { autoAlpha: 1, position: 'relative' });
-        gsap.from(slides[0].children, { y: 30, opacity: 0, stagger: 0.1, ease: 'power3.out', duration: 0.8 });
-    }
+    gsap.set(slides[0], { autoAlpha: 1 });
+    gsap.from(slides[0].children, { y: 30, opacity: 0, stagger: 0.1, ease: 'power3.out', duration: 0.8 });
 
-    function goToSlide(slideIndex) {
-        if (gsap.isTweening(slides) || slideIndex === currentSlide) return;
+    function goToSlide(slideIndex, direction = 1) {
+        if (gsap.isTweening(slides)) return;
 
         const outgoingSlide = slides[currentSlide];
         const incomingSlide = slides[slideIndex];
 
+        const yStart = direction > 0 ? 30 : -30;
+        const yEnd = direction > 0 ? -30 : 30;
+
         const tl = gsap.timeline();
-        tl.to(outgoingSlide.children, { y: -30, opacity: 0, stagger: 0.1, ease: 'power3.in', duration: 0.5 })
-          .set(outgoingSlide, { autoAlpha: 0, position: 'absolute' })
-          .set(incomingSlide, { autoAlpha: 1, position: 'relative' })
-          .from(incomingSlide.children, { y: 30, opacity: 0, stagger: 0.1, ease: 'power3.out', duration: 0.8 });
+        tl.to(outgoingSlide.children, { y: yEnd, opacity: 0, stagger: 0.1, ease: 'power3.in', duration: 0.5 })
+          .set(outgoingSlide, { autoAlpha: 0 })
+          .set(incomingSlide, { autoAlpha: 1 })
+          .from(incomingSlide.children, { y: yStart, opacity: 0, stagger: 0.1, ease: 'power3.out', duration: 0.8 });
 
         currentSlide = slideIndex;
     }
 
     function startAutoplay() {
-        if (slides.length > 1) {
-            autoPlayInterval = setInterval(() => {
+        isPaused = false;
+        clearInterval(autoPlayInterval); // Clear any existing interval
+        autoPlayInterval = setInterval(() => {
+            if (!isPaused) {
                 const nextSlide = (currentSlide + 1) % slides.length;
-                goToSlide(nextSlide);
-            }, 5000);
-        }
+                goToSlide(nextSlide, 1);
+            }
+        }, 5000); // Change slide every 5 seconds
     }
 
     function stopAutoplay() {
+        isPaused = true;
         clearInterval(autoPlayInterval);
     }
 
@@ -88,6 +99,7 @@ function initHeroCarousel() {
         heroWrapper.addEventListener('mouseenter', stopAutoplay);
         heroWrapper.addEventListener('mouseleave', startAutoplay);
     }
+
     startAutoplay();
 }
 
