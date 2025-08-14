@@ -21,8 +21,8 @@
 .hero-content-wrapper {
     position: relative;
     width: 100%;
-    max-width: 800px;
-    min-height: 250px;
+    max-width: 800px; /* O el ancho que prefieras */
+    min-height: 300px; /* Adjusted for content */
 }
 
 .hero-text-slide {
@@ -49,74 +49,50 @@
     gap: 8px;
 }
 
-/* Page Title for Eventos Pages */
-.page-title {
-    padding: 40px 0;
-    margin-top: 40px;
+/* --- Botones Unificados --- */
+.btn.btn-primary, .btn-event-details, .btn-service-details, .btn-form-submit, .btn-cta-white {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+    color: var(--black) !important;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
 }
 
-/* Grids */
-.events-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-    margin-top: 60px;
+.btn.btn-primary:hover, .btn-event-details:hover, .btn-service-details:hover, .btn-form-submit:hover, .btn-cta-white:hover {
+    background: rgba(255, 255, 255, 0.85);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.15);
 }
 
+/* --- Secciones --- */
+
+/* Servicios */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
 }
 
+.service-cta {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Galería */
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
 }
 
-/* Buttons */
-.btn-event-details, .btn-service-details, .btn-form-submit, .btn-cta-white {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--white);
-    color: var(--black);
-    padding: 10px 25px;
-    border-radius: 50px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.btn-event-details:hover, .btn-service-details:hover, .btn-form-submit:hover, .btn-cta-white:hover {
-    background: rgba(255, 255, 255, 0.9);
-    transform: translateY(-2px);
-}
-
-.btn-service-details {
-    width: 100%;
-    max-width: 200px;
-    margin: 0 auto;
-}
-
-.btn-form-submit {
-    width: 100%;
-    border: none;
-    cursor: pointer;
-}
-
-.btn-cta-white {
-     padding: 15px 30px;
-     white-space: nowrap;
-}
-
-/* Other sections */
-.event-button-container, .service-cta {
-    text-align: center;
-    margin-top: 20px;
-}
-
+/* CTA Horizontal */
 .cta-content-horizontal {
     display: flex;
     justify-content: space-between;
@@ -131,7 +107,7 @@
 }
 
 
-/* Responsive */
+/* --- Responsive --- */
 @media (max-width: 1024px) {
     .cta-content-horizontal {
         flex-direction: column;
@@ -151,11 +127,6 @@
 
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
-    }
-
-    .page-title {
-        margin-top: 20px;
-        padding: 30px 15px;
     }
 }
 

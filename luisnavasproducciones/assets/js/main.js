@@ -44,6 +44,7 @@ function initHeroCarousel() {
     if (slides.length === 0) return;
 
     let currentSlide = 0;
+    let autoPlayInterval;
 
     // Set initial state for all slides
     gsap.set(slides, { autoAlpha: 0, position: 'absolute', top: 0, left: 0, width: '100%' });
@@ -55,7 +56,7 @@ function initHeroCarousel() {
     }
 
     function goToSlide(slideIndex) {
-        if (slideIndex === currentSlide) return;
+        if (gsap.isTweening(slides)) return; // Prevent animation overlap
 
         const outgoingSlide = slides[currentSlide];
         const incomingSlide = slides[slideIndex];
@@ -69,13 +70,26 @@ function initHeroCarousel() {
         currentSlide = slideIndex;
     }
 
-    // Autoplay
-    if (slides.length > 1) {
-        setInterval(() => {
-            const nextSlide = (currentSlide + 1) % slides.length;
-            goToSlide(nextSlide);
-        }, 7000); // Change slide every 7 seconds
+    function startAutoplay() {
+        if (slides.length > 1) {
+            autoPlayInterval = setInterval(() => {
+                const nextSlide = (currentSlide + 1) % slides.length;
+                goToSlide(nextSlide);
+            }, 5000); // Change slide every 5 seconds
+        }
     }
+
+    function stopAutoplay() {
+        clearInterval(autoPlayInterval);
+    }
+
+    // Start autoplay and add pause on hover
+    const heroWrapper = document.querySelector('.hero-content-wrapper');
+    if (heroWrapper) {
+        heroWrapper.addEventListener('mouseenter', stopAutoplay);
+        heroWrapper.addEventListener('mouseleave', startAutoplay);
+    }
+    startAutoplay();
 }
 
 
