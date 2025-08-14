@@ -3,8 +3,7 @@ name: Deploy via FTP
 on:
   push:
     branches:
-      - "feat/hero-carousel-and-improvements"
-      - "feat/luisnavas-website"
+      - "feat/*"   # Cualquier rama que empiece por feat/
 
 jobs:
   deploy:
