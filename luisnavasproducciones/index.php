@@ -27,14 +27,14 @@ $hero_eventos = $stmt_hero->fetchAll(PDO::FETCH_ASSOC);
                                 <span><?php echo htmlspecialchars($evento['ciudad']); ?></span>
                             </div>
                         </div>
-                        <a href="/evento/<?php echo htmlspecialchars($evento['slug']); ?>" class="btn btn-primary">Más información</a>
+                        <a href="/evento/<?php echo htmlspecialchars($evento['slug']); ?>" class="btn-primary">Más información</a>
                     </div>
                 <?php endforeach; ?>
             <?php else: ?>
                 <div class="hero-text-slide">
                     <h1 class="hero-title">Conciertos y Eventos Privados</h1>
                     <p class="hero-subtitle">Producción de eventos de primer nivel con logística integral, talento musical y suministro de licores para crear experiencias inolvidables.</p>
-                    <a href="#contacto" class="btn btn-primary">Contáctanos</a>
+                    <a href="#contacto" class="btn-primary">Contáctanos</a>
                 </div>
             <?php endif; ?>
         </div>
@@ -52,7 +52,7 @@ $hero_eventos = $stmt_hero->fetchAll(PDO::FETCH_ASSOC);
                 <h2>Nuestra Historia</h2>
                 <p>Con más de 10 años de experiencia, Luis Navas Producciones ha transformado ideas en eventos inolvidables en todo el Atlántico y Colombia. Desde nuestros inicios, nos hemos dedicado a brindar soluciones completas y personalizadas para cada cliente.</p>
                 <p>Nuestro compromiso con la excelencia y la pasión por los detalles nos han convertido en un referente en la organización de eventos en el país, llevando cada producción más allá de las expectativas.</p>
-                <a href="#contacto" class="btn btn-primary">Conoce más</a>
+                <a href="#contacto" class="btn-primary">Conoce más</a>
             </div>
         </div>
     </div>
@@ -70,12 +70,11 @@ $hero_eventos = $stmt_hero->fetchAll(PDO::FETCH_ASSOC);
                     <p>Coordinamos cada aspecto de tu evento con precisión y atención al detalle.</p>
                 </div>
                 <div class="service-cta">
-                    <a href="https://wa.me/573015017283?text=Hola%20Luis%20Navas%20Producciones,%20quiero%20más%20información%20sobre%20Organización%20Integral" class="btn-whatsapp">
+                    <a href="https://wa.me/573015017283?text=Hola%20Luis%20Navas%20Producciones,%20quiero%20más%20información%20sobre%20Organización%20Integral" class="btn-primary" target="_blank">
                         Más información
                     </a>
                 </div>
             </div>
-
             <div class="service-card glass-effect">
                 <div class="service-content">
                     <i class="fas fa-truck-moving"></i>
@@ -83,12 +82,11 @@ $hero_eventos = $stmt_hero->fetchAll(PDO::FETCH_ASSOC);
                     <p>Gestión completa de infraestructura y operación para eventos impecables.</p>
                 </div>
                 <div class="service-cta">
-                    <a href="https://wa.me/573015017283?text=Hola%20Luis%20Navas%20Producciones,%20quiero%20más%20información%20sobre%20Logística%20de%20Eventos" class="btn-whatsapp">
+                    <a href="https://wa.me/573015017283?text=Hola%20Luis%20Navas%20Producciones,%20quiero%20más%20información%20sobre%20Logística%20de%20Eventos" class="btn-primary" target="_blank">
                         Más información
                     </a>
                 </div>
             </div>
-
             <div class="service-card glass-effect">
                 <div class="service-content">
                     <i class="fas fa-music"></i>
@@ -96,12 +94,11 @@ $hero_eventos = $stmt_hero->fetchAll(PDO::FETCH_ASSOC);
                     <p>Talentos musicales de alta calidad para crear la atmósfera perfecta.</p>
                 </div>
                 <div class="service-cta">
-                    <a href="https://wa.me/573015017283?text=Hola%20Luis%20Navas%20Producciones,%20quiero%20más%20información%20sobre%20Producción%20Musical" class="btn-whatsapp">
+                    <a href="https://wa.me/573015017283?text=Hola%20Luis%20Navas%20Producciones,%20quiero%20más%20información%20sobre%20Producción%20Musical" class="btn-primary" target="_blank">
                         Más información
                     </a>
                 </div>
             </div>
-
             <div class="service-card glass-effect">
                 <div class="service-content">
                     <i class="fas fa-wine-glass-alt"></i>
@@ -109,7 +106,7 @@ $hero_eventos = $stmt_hero->fetchAll(PDO::FETCH_ASSOC);
                     <p>Selección exclusiva de licores y bebidas para tu evento.</p>
                 </div>
                 <div class="service-cta">
-                    <a href="https://wa.me/573015017283?text=Hola%20Luis%20Navas%20Producciones,%20quiero%20más%20información%20sobre%20Abastecimiento%20Premium" class="btn-whatsapp">
+                    <a href="https://wa.me/573015017283?text=Hola%20Luis%20Navas%20Producciones,%20quiero%20más%20información%20sobre%20Abastecimiento%20Premium" class="btn-primary" target="_blank">
                         Más información
                     </a>
                 </div>
@@ -124,7 +121,7 @@ $hero_eventos = $stmt_hero->fetchAll(PDO::FETCH_ASSOC);
         <div class="cta-content glass-effect">
             <h2 class="cta-title">Organiza tu Concierto o Evento Privado con Nosotros</h2>
             <p class="cta-subtitle">Transformamos tus ideas en experiencias inolvidables con producción profesional y atención personalizada.</p>
-            <a href="https://wa.me/573015017283?text=Hola%20Luis%20Navas%20Producciones,%20quiero%20organizar%20un%20evento%20privado%20o%20concierto" class="btn btn-primary" target="_blank">
+            <a href="https://wa.me/573015017283?text=Hola%20Luis%20Navas%20Producciones,%20quiero%20organizar%20un%20evento%20privado%20o%20concierto" class="btn-primary" target="_blank">
                 Contáctanos ahora
             </a>
         </div>
@@ -172,6 +169,76 @@ $hero_eventos = $stmt_hero->fetchAll(PDO::FETCH_ASSOC);
                     <i class="fas fa-search-plus"></i>
                 </div>
             </div>
+            <div class="gallery-item glass-effect">
+                <img src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Evento 7" loading="lazy">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="gallery-item glass-effect">
+                <img src="https://images.unsplash.com/photo-1481886727447-8057b5571563?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Evento 8" loading="lazy">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Eventos Section -->
+<section id="eventos" class="section events-section">
+    <div class="container">
+        <h2 class="section-title">Próximos Eventos</h2>
+        <div class="events-grid">
+            <?php
+            // Obtener los últimos 4 eventos para el grid
+            $stmt = $conn->prepare("SELECT * FROM eventos ORDER BY fecha DESC LIMIT 4");
+            $stmt->execute();
+            $eventos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            if (empty($eventos)) {
+                echo "<p class='text-center'>No hay eventos próximos en este momento. ¡Vuelve pronto!</p>";
+            } else {
+                foreach($eventos as $evento) {
+                    echo '
+                    <div class="event-card">
+                        <a href="/evento/'.htmlspecialchars($evento['slug']).'" class="event-image-link">
+                            <img src="/assets/uploads/'.htmlspecialchars($evento['imagen']).'" alt="'.htmlspecialchars($evento['nombre']).'" loading="lazy">
+                        </a>
+                        <div class="event-info-container">
+                            <h3>'.htmlspecialchars($evento['nombre']).'</h3>
+                            <div class="event-meta">
+                                <div class="event-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>'.date('d M Y', strtotime($evento['fecha'])).'</span>
+                                </div>
+                                <div class="event-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>'.htmlspecialchars($evento['ciudad']).'</span>
+                                </div>
+                            </div>
+                            <p class="event-description">'.substr(htmlspecialchars($evento['descripcion']), 0, 100).'...</p>
+                            <a href="/evento/'.htmlspecialchars($evento['slug']).'" class="btn-primary">
+                                Más información
+                            </a>
+                        </div>
+                    </div>';
+                }
+            }
+            ?>
+        </div>
+        <div class="text-center" style="margin-top: 40px;">
+            <a href="/eventos.php" class="btn-primary">Ver Todos los Eventos</a>
+        </div>
+    </div>
+</section>
+
+<!-- Patrocinadores Section -->
+<section class="sponsors-section">
+    <div class="container">
+        <h3 class="sponsors-title">Nuestros Aliados</h3>
+        <div class="sponsors-grid">
+            <!-- Logos de patrocinadores -->
         </div>
     </div>
 </section>
@@ -224,7 +291,7 @@ $hero_eventos = $stmt_hero->fetchAll(PDO::FETCH_ASSOC);
                         <label for="mensaje">Mensaje</label>
                         <textarea id="mensaje" name="mensaje" class="form-control" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                    <button type="submit" class="btn-primary">Enviar Mensaje</button>
                 </form>
             </div>
         </div>

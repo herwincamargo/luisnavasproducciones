@@ -1,0 +1,19 @@
+/* Estilos para las páginas de eventos */
+.page-title {
+    padding: 40px 0;
+    margin-top: 40px; /* Reducido de 80px */
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 60px;
+}
+
+@media (max-width: 768px) {
+    .page-title {
+        margin-top: 20px;
+        padding: 30px 15px;
+    }
+}
