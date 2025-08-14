@@ -2,7 +2,9 @@ name: Deploy via FTP
 
 on:
   push:
-    branches: [ "feat/hero-carousel-and-improvements" ]
+    branches:
+      - "feat/hero-carousel-and-improvements"
+      - "feat/luisnavas-website"
 
 jobs:
   deploy:
