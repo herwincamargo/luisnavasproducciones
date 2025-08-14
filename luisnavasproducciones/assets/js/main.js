@@ -52,11 +52,11 @@ function initHeroCarousel() {
     // Show the first slide
     if (slides.length > 0) {
         gsap.set(slides[0], { autoAlpha: 1, position: 'relative' });
-        gsap.from(slides[0].children, { y: 30, opacity: 0, stagger: 0.2, ease: 'power3.out', duration: 1 });
+        gsap.from(slides[0].children, { y: 30, opacity: 0, stagger: 0.1, ease: 'power3.out', duration: 0.8 });
     }
 
     function goToSlide(slideIndex) {
-        if (gsap.isTweening(slides)) return; // Prevent animation overlap
+        if (gsap.isTweening(slides) || slideIndex === currentSlide) return;
 
         const outgoingSlide = slides[currentSlide];
         const incomingSlide = slides[slideIndex];
@@ -65,7 +65,7 @@ function initHeroCarousel() {
         tl.to(outgoingSlide.children, { y: -30, opacity: 0, stagger: 0.1, ease: 'power3.in', duration: 0.5 })
           .set(outgoingSlide, { autoAlpha: 0, position: 'absolute' })
           .set(incomingSlide, { autoAlpha: 1, position: 'relative' })
-          .from(incomingSlide.children, { y: 30, opacity: 0, stagger: 0.2, ease: 'power3.out', duration: 1 });
+          .from(incomingSlide.children, { y: 30, opacity: 0, stagger: 0.1, ease: 'power3.out', duration: 0.8 });
 
         currentSlide = slideIndex;
     }
@@ -75,7 +75,7 @@ function initHeroCarousel() {
             autoPlayInterval = setInterval(() => {
                 const nextSlide = (currentSlide + 1) % slides.length;
                 goToSlide(nextSlide);
-            }, 5000); // Change slide every 5 seconds
+            }, 5000);
         }
     }
 
@@ -83,7 +83,6 @@ function initHeroCarousel() {
         clearInterval(autoPlayInterval);
     }
 
-    // Start autoplay and add pause on hover
     const heroWrapper = document.querySelector('.hero-content-wrapper');
     if (heroWrapper) {
         heroWrapper.addEventListener('mouseenter', stopAutoplay);
@@ -95,10 +94,8 @@ function initHeroCarousel() {
 
 // Scroll Animations
 function initAnimations() {
-    // Animación Hero
     initHeroCarousel();
 
-    // Animaciones de secciones
     gsap.utils.toArray('.section').forEach((section, i) => {
         const content = section.querySelector('.container');
 
@@ -115,7 +112,6 @@ function initAnimations() {
         });
     });
 
-    // Efecto Parallax
     gsap.to('.hero-video', {
         scrollTrigger: {
             trigger: '.hero',
@@ -127,7 +123,6 @@ function initAnimations() {
         ease: 'none'
     });
 
-    // Animación de tarjetas
     gsap.utils.toArray('.glass-effect').forEach((card, i) => {
         gsap.from(card, {
             scrollTrigger: {
@@ -149,14 +144,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
 
-        // Transición de página
         gsap.to('.page-transition', {
             scaleY: 1,
             transformOrigin: 'bottom',
             duration: 0.5,
             ease: 'power2.in',
             onComplete: function() {
-                //
                 document.querySelector(anchor.getAttribute('href')).scrollIntoView({
                     behavior: 'auto'
                 });
@@ -187,7 +180,6 @@ if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
 
-        // Animación de éxito
         gsap.to('#form-contacto', {
             opacity: 0.5,
             duration: 0.3,
@@ -212,7 +204,6 @@ if ('loading' in HTMLImageElement.prototype) {
         }
     });
 } else {
-    // Polyfill para lazy loading
     const lazyLoadInstance = new LazyLoad({
         elements_selector: ".lazy"
     });
