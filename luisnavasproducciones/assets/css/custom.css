@@ -88,7 +88,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: var(--white);
+    background: var(--white) !important;
     color: var(--black) !important;
     padding: 12px 28px;
     border-radius: 50px;
