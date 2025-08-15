@@ -51,6 +51,7 @@ function initHeroCarousel() {
 
     let currentSlide = 0;
     let autoPlayInterval;
+    let isAnimating = false; // Manual lock
 
     // Set initial state for all slides
     gsap.set(slides, { autoAlpha: 0, position: 'absolute', top: 0, left: 0, width: '100%' });
@@ -60,18 +61,23 @@ function initHeroCarousel() {
     gsap.from(slides[0].children, { y: 30, opacity: 0, stagger: 0.1, ease: 'power3.out', duration: 0.8 });
 
     function goToSlide(slideIndex) {
-        if (gsap.isTweening(slides) || slideIndex === currentSlide) return;
+        // Use the manual lock and check for same slide
+        if (isAnimating || slideIndex === currentSlide) return;
+        isAnimating = true; // Lock the animation
 
         const outgoingSlide = slides[currentSlide];
         const incomingSlide = slides[slideIndex];
 
-        const tl = gsap.timeline();
+        const tl = gsap.timeline({
+            onComplete: () => {
+                currentSlide = slideIndex;
+                isAnimating = false; // Unlock the animation
+            }
+        });
         tl.to(outgoingSlide.children, { y: -30, opacity: 0, stagger: 0.1, ease: 'power3.in', duration: 0.5 })
           .set(outgoingSlide, { autoAlpha: 0, position: 'absolute' })
           .set(incomingSlide, { autoAlpha: 1, position: 'relative' })
           .from(incomingSlide.children, { y: 30, opacity: 0, stagger: 0.1, ease: 'power3.out', duration: 0.8 });
-
-        currentSlide = slideIndex;
     }
 
     function startAutoplay() {
