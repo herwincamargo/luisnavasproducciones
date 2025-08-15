@@ -32,7 +32,7 @@ $eventos_grid = $stmt_eventos_grid->fetchAll(PDO::FETCH_ASSOC);
                                 <span><?php echo htmlspecialchars($evento['ciudad']); ?></span>
                             </div>
                         </div>
-                        <a href="/evento/<?php echo htmlspecialchars($evento['slug']); ?>" class="btn btn-primary">Más información</a>
+                        <a href="/evento/<?php echo htmlspecialchars($evento['slug']); ?>" class="hero-info-link">Más información</a>
                     </div>
                 <?php endforeach; ?>
             <?php else: ?>
