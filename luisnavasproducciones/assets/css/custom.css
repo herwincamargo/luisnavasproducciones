@@ -1,3 +1,7 @@
+.hero-text-slide {
+    opacity: 1 !important;
+}
+
 .hero-info-link {
     display: inline-block;
     margin-top: 20px;
