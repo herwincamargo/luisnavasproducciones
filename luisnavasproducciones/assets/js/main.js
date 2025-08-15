@@ -27,7 +27,7 @@ document.addEventListener('mousemove', (e) => {
     });
 });
 
-document.querySelectorAll('a, button, .btn-primary, input, .glass-effect').forEach(item => {
+document.querySelectorAll('a, button, .btn, input, .glass-effect').forEach(item => {
     item.addEventListener('mouseenter', () => {
         cursor.style.transform = 'scale(2)';
         cursorFollower.style.transform = 'scale(0.5)';
@@ -39,11 +39,9 @@ document.querySelectorAll('a, button, .btn-primary, input, .glass-effect').forEa
     });
 });
 
-/*
 function initHeroCarousel() {
     const slides = gsap.utils.toArray('.hero-text-slide');
     if (slides.length < 2) {
-        // If 0 or 1 slide, just show it and stop.
         if (slides.length === 1) {
             gsap.set(slides[0], { autoAlpha: 1, position: 'relative' });
         }
@@ -52,19 +50,15 @@ function initHeroCarousel() {
 
     let currentSlide = 0;
     let autoPlayInterval;
-    let isAnimating = false; // Manual lock
+    let isAnimating = false;
 
-    // Set initial state for all slides
     gsap.set(slides, { autoAlpha: 0, position: 'absolute', top: 0, left: 0, width: '100%' });
-
-    // Show the first slide
     gsap.set(slides[0], { autoAlpha: 1, position: 'relative' });
     gsap.from(slides[0].children, { y: 30, opacity: 0, stagger: 0.1, ease: 'power3.out', duration: 0.8 });
 
     function goToSlide(slideIndex) {
-        // Use the manual lock and check for same slide
         if (isAnimating || slideIndex === currentSlide) return;
-        isAnimating = true; // Lock the animation
+        isAnimating = true;
 
         const outgoingSlide = slides[currentSlide];
         const incomingSlide = slides[slideIndex];
@@ -72,7 +66,7 @@ function initHeroCarousel() {
         const tl = gsap.timeline({
             onComplete: () => {
                 currentSlide = slideIndex;
-                isAnimating = false; // Unlock the animation
+                isAnimating = false;
             }
         });
         tl.to(outgoingSlide.children, { y: -30, opacity: 0, stagger: 0.1, ease: 'power3.in', duration: 0.5 })
@@ -82,11 +76,11 @@ function initHeroCarousel() {
     }
 
     function startAutoplay() {
-        clearInterval(autoPlayInterval); // Clear any existing interval
+        clearInterval(autoPlayInterval);
         autoPlayInterval = setInterval(() => {
             const nextSlide = (currentSlide + 1) % slides.length;
             goToSlide(nextSlide);
-        }, 5000); // Change slide every 5 seconds
+        }, 5000);
     }
 
     function stopAutoplay() {
@@ -101,12 +95,10 @@ function initHeroCarousel() {
 
     startAutoplay();
 }
-*/
-
 
 // Scroll Animations
 function initAnimations() {
-    // initHeroCarousel(); // Desactivado
+    initHeroCarousel();
 
     gsap.utils.toArray('.section').forEach((section, i) => {
         const content = section.querySelector('.container');

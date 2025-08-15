@@ -21,7 +21,8 @@ if (!$evento) {
 
 <div class="section">
     <div class="container">
-        <div class="page-title text-center">
+        <!-- Título de página simple con fondo oscuro -->
+        <div class="page-title text-center" style="padding: 60px 0; background: var(--dark-gray); border-radius: 12px;">
              <h1 class="hero-title"><?= htmlspecialchars($evento['nombre']) ?></h1>
              <p class="hero-subtitle">
                 <i class="far fa-calendar-alt"></i> <?= date('d F, Y', strtotime($evento['fecha'])) ?>
@@ -30,14 +31,14 @@ if (!$evento) {
              </p>
         </div>
 
-        <div class="event-detail-grid">
-            <div class="event-detail-image">
-                <img src="/assets/uploads/<?= htmlspecialchars($evento['imagen']) ?>" alt="<?= htmlspecialchars($evento['nombre']) ?>">
+        <div class="grid cols-2 mt-6" style="gap: 40px; align-items: flex-start;">
+            <div>
+                <img src="/assets/uploads/<?= htmlspecialchars($evento['imagen']) ?>" alt="<?= htmlspecialchars($evento['nombre']) ?>" style="border-radius: 12px; width: 100%;">
             </div>
-            <div class="event-detail-info card glass-effect">
+            <div class="card glass-effect">
                 <h3>Descripción del Evento</h3>
-                <p class="event-full-description"><?= nl2br(htmlspecialchars($evento['descripcion'])) ?></p>
-                <a href="https://wa.me/573015017283?text=Hola%20Luis%20Navas%20Producciones,%20estoy%20interesado%20en%20el%20evento%20<?= urlencode($evento['nombre']) ?>" class="btn-primary" target="_blank">
+                <p style="white-space: pre-wrap;"><?= htmlspecialchars($evento['descripcion']) ?></p>
+                <a href="https://wa.me/573015017283?text=Hola%20Luis%20Navas%20Producciones,%20estoy%20interesado%20en%20el%20evento%20<?= urlencode($evento['nombre']) ?>" class="btn btn-primary block mt-5" target="_blank">
                     <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
                 </a>
             </div>

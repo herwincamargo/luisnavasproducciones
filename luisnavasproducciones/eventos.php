@@ -10,12 +10,12 @@ $eventos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <div class="section">
     <div class="container">
-        <div class="page-title text-center">
+        <div class="page-title text-center" style="padding: 60px 0; background: var(--dark-gray); border-radius: 12px;">
             <h1 class="hero-title">Todos Nuestros Eventos</h1>
             <p class="hero-subtitle">Explora nuestro archivo completo de eventos pasados y futuros.</p>
         </div>
 
-        <div class="events-grid">
+        <div class="events-grid mt-6">
             <?php if (empty($eventos)): ?>
                 <p class="text-center">No hay eventos para mostrar.</p>
             <?php else: ?>
@@ -37,11 +37,9 @@ $eventos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             </div>
                         </div>
                         <p class="event-description"><?= substr(htmlspecialchars($evento['descripcion']), 0, 100) ?>...</p>
-                        <div class="event-button-container">
-                             <a href="/evento/<?= htmlspecialchars($evento['slug']) ?>" class="btn-primary">
-                                Más información
-                            </a>
-                        </div>
+                        <a href="/evento/<?= htmlspecialchars($evento['slug']) ?>" class="btn-whatsapp">
+                            Más información
+                        </a>
                     </div>
                 </div>
                 <?php endforeach; ?>

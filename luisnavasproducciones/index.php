@@ -2,10 +2,10 @@
 include 'includes/header.php';
 include 'includes/config.php';
 
-// Obtener el último evento para el hero
-$stmt_hero = $conn->prepare("SELECT * FROM eventos ORDER BY fecha DESC LIMIT 1");
+// Obtener los últimos 3 eventos para el carrusel del hero
+$stmt_hero = $conn->prepare("SELECT * FROM eventos ORDER BY fecha DESC LIMIT 3");
 $stmt_hero->execute();
-$hero_evento = $stmt_hero->fetch(PDO::FETCH_ASSOC);
+$hero_eventos = $stmt_hero->fetchAll(PDO::FETCH_ASSOC);
 
 // Obtener los últimos 6 eventos para el grid
 $stmt_eventos_grid = $conn->prepare("SELECT * FROM eventos ORDER BY fecha DESC LIMIT 6");
@@ -13,28 +13,30 @@ $stmt_eventos_grid->execute();
 $eventos_grid = $stmt_eventos_grid->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<!-- Hero Section - Static -->
+<!-- Hero Section - Dynamic Text Carousel -->
 <section id="inicio" class="hero">
     <div class="container">
         <div class="hero-content-wrapper">
-            <?php if ($hero_evento): ?>
-                <div class="hero-text-slide" style="opacity: 1; visibility: visible;">
-                    <h1 class="hero-title"><?php echo htmlspecialchars($hero_evento['nombre']); ?></h1>
-                    <p class="hero-subtitle"><?php echo substr(htmlspecialchars($hero_evento['descripcion']), 0, 150); ?>...</p>
-                    <div class="hero-event-meta">
-                        <div class="event-date">
-                            <i class="far fa-calendar-alt"></i>
-                            <span><?php echo date('d M Y', strtotime($hero_evento['fecha'])); ?></span>
+            <?php if (!empty($hero_eventos)): ?>
+                <?php foreach($hero_eventos as $index => $evento): ?>
+                    <div class="hero-text-slide">
+                        <h1 class="hero-title"><?php echo htmlspecialchars($evento['nombre']); ?></h1>
+                        <p class="hero-subtitle"><?php echo substr(htmlspecialchars($evento['descripcion']), 0, 150); ?>...</p>
+                        <div class="hero-event-meta">
+                            <div class="event-date">
+                                <i class="far fa-calendar-alt"></i>
+                                <span><?php echo date('d M Y', strtotime($evento['fecha'])); ?></span>
+                            </div>
+                            <div class="event-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span><?php echo htmlspecialchars($evento['ciudad']); ?></span>
+                            </div>
                         </div>
-                        <div class="event-location">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span><?php echo htmlspecialchars($hero_evento['ciudad']); ?></span>
-                        </div>
+                        <a href="/evento/<?php echo htmlspecialchars($evento['slug']); ?>" class="hero-info-link">Más información</a>
                     </div>
-                    <a href="/evento/<?php echo htmlspecialchars($hero_evento['slug']); ?>" class="hero-info-link">Más información</a>
-                </div>
+                <?php endforeach; ?>
             <?php else: ?>
-                <div class="hero-text-slide" style="opacity: 1; visibility: visible;">
+                <div class="hero-text-slide">
                     <h1 class="hero-title">Conciertos y Eventos Privados</h1>
                     <p class="hero-subtitle">Producción de eventos de primer nivel con logística integral, talento musical y suministro de licores para crear experiencias inolvidables.</p>
                     <a href="#eventos" class="btn btn-primary">Ver Próximos Eventos</a>
