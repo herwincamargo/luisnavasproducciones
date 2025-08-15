@@ -39,6 +39,7 @@ document.querySelectorAll('a, button, .btn-primary, input, .glass-effect').forEa
     });
 });
 
+/*
 function initHeroCarousel() {
     const slides = gsap.utils.toArray('.hero-text-slide');
     if (slides.length < 2) {
@@ -100,11 +101,12 @@ function initHeroCarousel() {
 
     startAutoplay();
 }
+*/
 
 
 // Scroll Animations
 function initAnimations() {
-    initHeroCarousel();
+    // initHeroCarousel(); // Desactivado
 
     gsap.utils.toArray('.section').forEach((section, i) => {
         const content = section.querySelector('.container');

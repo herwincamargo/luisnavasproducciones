@@ -30,11 +30,9 @@
 
 .hero-text-slide {
     width: 100%;
-    opacity: 0;
-    visibility: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
+    opacity: 1;
+    visibility: visible;
+    position: relative; /* Changed from absolute */
 }
 
 .hero-subtitle {
@@ -56,6 +54,23 @@
     display: flex;
     align-items: center;
     gap: 8px;
+}
+
+.hero-info-link {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: underline;
+    transition: all 0.3s ease;
+}
+
+.hero-info-link:hover {
+    transform: scale(1.05);
+    color: var(--accent);
 }
 
 /* Eventos Section */
@@ -126,6 +141,11 @@
 .cta-text {
     flex: 1;
     padding-right: 40px;
+}
+
+/* Helpers */
+.text-center {
+    text-align: center;
 }
 
 /* Responsive */
