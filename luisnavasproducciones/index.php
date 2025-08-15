@@ -32,14 +32,14 @@ $eventos_grid = $stmt_eventos_grid->fetchAll(PDO::FETCH_ASSOC);
                                 <span><?php echo htmlspecialchars($evento['ciudad']); ?></span>
                             </div>
                         </div>
-                        <a href="/evento/<?php echo htmlspecialchars($evento['slug']); ?>" class="btn-primary">Más información</a>
+                        <a href="/evento/<?php echo htmlspecialchars($evento['slug']); ?>" class="btn btn-primary">Más información</a>
                     </div>
                 <?php endforeach; ?>
             <?php else: ?>
                 <div class="hero-text-slide">
                     <h1 class="hero-title">Conciertos y Eventos Privados</h1>
                     <p class="hero-subtitle">Producción de eventos de primer nivel con logística integral, talento musical y suministro de licores para crear experiencias inolvidables.</p>
-                    <a href="#eventos" class="btn-primary">Ver Próximos Eventos</a>
+                    <a href="#eventos" class="btn btn-primary">Ver Próximos Eventos</a>
                 </div>
             <?php endif; ?>
         </div>
@@ -73,7 +73,7 @@ $eventos_grid = $stmt_eventos_grid->fetchAll(PDO::FETCH_ASSOC);
                             </div>
                             <p class="event-description"><?php echo substr(htmlspecialchars($evento['descripcion']), 0, 100); ?>...</p>
                             <div class="event-button-container">
-                                <a href="/evento/<?php echo htmlspecialchars($evento['slug']); ?>" class="btn-primary">
+                                <a href="/evento/<?php echo htmlspecialchars($evento['slug']); ?>" class="btn btn-primary">
                                     Más información
                                 </a>
                             </div>
@@ -83,7 +83,7 @@ $eventos_grid = $stmt_eventos_grid->fetchAll(PDO::FETCH_ASSOC);
             <?php endif; ?>
         </div>
         <div class="text-center" style="margin-top: 40px;">
-            <a href="/eventos.php" class="btn-primary">Ver Todos los Eventos</a>
+            <a href="/eventos.php" class="btn btn-primary">Ver Todos los Eventos</a>
         </div>
     </div>
 </section>
@@ -99,7 +99,7 @@ $eventos_grid = $stmt_eventos_grid->fetchAll(PDO::FETCH_ASSOC);
                 <h2>Nuestra Historia</h2>
                 <p>Con más de 10 años de experiencia, Luis Navas Producciones ha transformado ideas en eventos inolvidables en todo el Atlántico y Colombia. Desde nuestros inicios, nos hemos dedicado a brindar soluciones completas y personalizadas para cada cliente.</p>
                 <p>Nuestro compromiso con la excelencia y la pasión por los detalles nos han convertido en un referente en la organización de eventos en el país, llevando cada producción más allá de las expectativas.</p>
-                <a href="#contacto" class="btn-primary">Conoce más</a>
+                <a href="#contacto" class="btn btn-primary">Conoce más</a>
             </div>
         </div>
     </div>
@@ -117,7 +117,7 @@ $eventos_grid = $stmt_eventos_grid->fetchAll(PDO::FETCH_ASSOC);
                     <p>Coordinamos cada aspecto de tu evento con precisión y atención al detalle.</p>
                 </div>
                 <div class="service-cta">
-                    <a href="https://wa.me/573015017283?text=Hola%20Luis%20Navas%20Producciones,%20quiero%20más%20información%20sobre%20Organización%20Integral" class="btn-primary" target="_blank">
+                    <a href="https://wa.me/573015017283?text=Hola%20Luis%20Navas%20Producciones,%20quiero%20más%20información%20sobre%20Organización%20Integral" class="btn btn-primary" target="_blank">
                         Más información
                     </a>
                 </div>
@@ -129,7 +129,7 @@ $eventos_grid = $stmt_eventos_grid->fetchAll(PDO::FETCH_ASSOC);
                     <p>Gestión completa de infraestructura y operación para eventos impecables.</p>
                 </div>
                 <div class="service-cta">
-                    <a href="https://wa.me/573015017283?text=Hola%20Luis%20Navas%20Producciones,%20quiero%20más%20información%20sobre%20Logística%20de%20Eventos" class="btn-primary" target="_blank">
+                    <a href="https://wa.me/573015017283?text=Hola%20Luis%20Navas%20Producciones,%20quiero%20más%20información%20sobre%20Logística%20de%20Eventos" class="btn btn-primary" target="_blank">
                         Más información
                     </a>
                 </div>
@@ -141,7 +141,7 @@ $eventos_grid = $stmt_eventos_grid->fetchAll(PDO::FETCH_ASSOC);
                     <p>Talentos musicales de alta calidad para crear la atmósfera perfecta.</p>
                 </div>
                 <div class="service-cta">
-                    <a href="https://wa.me/573015017283?text=Hola%20Luis%20Navas%20Producciones,%20quiero%20más%20información%20sobre%20Producción%20Musical" class="btn-primary" target="_blank">
+                    <a href="https://wa.me/573015017283?text=Hola%20Luis%20Navas%20Producciones,%20quiero%20más%20información%20sobre%20Producción%20Musical" class="btn btn-primary" target="_blank">
                         Más información
                     </a>
                 </div>
@@ -153,7 +153,7 @@ $eventos_grid = $stmt_eventos_grid->fetchAll(PDO::FETCH_ASSOC);
                     <p>Selección exclusiva de licores y bebidas para tu evento.</p>
                 </div>
                 <div class="service-cta">
-                    <a href="https://wa.me/573015017283?text=Hola%20Luis%20Navas%20Producciones,%20quiero%20más%20información%20sobre%20Abastecimiento%20Premium" class="btn-primary" target="_blank">
+                    <a href="https://wa.me/573015017283?text=Hola%20Luis%20Navas%20Producciones,%20quiero%20más%20información%20sobre%20Abastecimiento%20Premium" class="btn btn-primary" target="_blank">
                         Más información
                     </a>
                 </div>
@@ -254,7 +254,7 @@ $eventos_grid = $stmt_eventos_grid->fetchAll(PDO::FETCH_ASSOC);
                 <h2 class="cta-title">Organiza tu Concierto o Evento Privado con Nosotros</h2>
                 <p class="cta-subtitle">Transformamos tus ideas en experiencias inolvidables con producción profesional y atención personalizada.</p>
             </div>
-            <a href="https://wa.me/573015017283?text=Hola%20Luis%20Navas%20Producciones,%20quiero%20organizar%20un%20evento%20privado%20o%20concierto" class="btn-cta-white" target="_blank">
+            <a href="https://wa.me/573015017283?text=Hola%20Luis%20Navas%20Producciones,%20quiero%20organizar%20un%20evento%20privado%20o%20concierto" class="btn btn-cta-white" target="_blank">
                 Contáctanos ahora
             </a>
         </div>
@@ -309,7 +309,7 @@ $eventos_grid = $stmt_eventos_grid->fetchAll(PDO::FETCH_ASSOC);
                         <label for="mensaje">Mensaje</label>
                         <textarea id="mensaje" name="mensaje" class="form-control" required></textarea>
                     </div>
-                    <button type="submit" class="btn-primary">Enviar Mensaje</button>
+                    <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
                 </form>
             </div>
         </div>
