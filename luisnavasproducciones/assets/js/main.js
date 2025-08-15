@@ -54,7 +54,7 @@ function initHeroCarousel() {
 
     // Set initial state for all slides
     gsap.set(slides, { autoAlpha: 0, position: 'absolute', top: 0, left: 0, width: '100%' });
-    
+
     // Show the first slide
     gsap.set(slides[0], { autoAlpha: 1, position: 'relative' });
     gsap.from(slides[0].children, { y: 30, opacity: 0, stagger: 0.1, ease: 'power3.out', duration: 0.8 });
@@ -93,7 +93,7 @@ function initHeroCarousel() {
         heroWrapper.addEventListener('mouseenter', stopAutoplay);
         heroWrapper.addEventListener('mouseleave', startAutoplay);
     }
-    
+
     startAutoplay();
 }
 
