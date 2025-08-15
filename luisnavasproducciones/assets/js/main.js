@@ -65,13 +65,15 @@ function initHeroCarousel() {
         const outgoingSlide = slides[currentSlide];
         const incomingSlide = slides[slideIndex];
 
-        const tl = gsap.timeline();
+        const tl = gsap.timeline({
+            onComplete: () => {
+                currentSlide = slideIndex;
+            }
+        });
         tl.to(outgoingSlide.children, { y: -30, opacity: 0, stagger: 0.1, ease: 'power3.in', duration: 0.5 })
           .set(outgoingSlide, { autoAlpha: 0, position: 'absolute' })
           .set(incomingSlide, { autoAlpha: 1, position: 'relative' })
           .from(incomingSlide.children, { y: 30, opacity: 0, stagger: 0.1, ease: 'power3.out', duration: 0.8 });
-
-        currentSlide = slideIndex;
     }
 
     function startAutoplay() {
