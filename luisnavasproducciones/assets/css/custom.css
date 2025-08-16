@@ -1,3 +1,18 @@
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid transparent;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
 .hero-text-slide {
     opacity: 1 !important;
 }
