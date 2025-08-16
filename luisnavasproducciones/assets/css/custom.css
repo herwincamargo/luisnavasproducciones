@@ -22,3 +22,13 @@
 .text-center {
     text-align: center;
 }
+
+.events-section, .events-page-section {
+    background: var(--black);
+}
+
+/* Force hero button visibility */
+.hero-text-slide .btn-primary {
+    opacity: 1 !important;
+    visibility: visible !important;
+}

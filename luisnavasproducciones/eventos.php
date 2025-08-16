@@ -8,7 +8,7 @@ $stmt->execute();
 $eventos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<div class="section">
+<div class="section events-page-section">
     <div class="container">
         <div class="page-title text-center" style="padding: 60px 0; background: var(--dark-gray); border-radius: 12px;">
             <h1 class="hero-title">Todos Nuestros Eventos</h1>

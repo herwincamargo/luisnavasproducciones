@@ -19,7 +19,7 @@ $eventos_grid = $stmt_eventos_grid->fetchAll(PDO::FETCH_ASSOC);
         <div class="hero-content-wrapper">
             <?php if (!empty($hero_eventos)): ?>
                 <?php foreach($hero_eventos as $index => $evento): ?>
-                    <div class="hero-text-slide">
+                    <div class="hero-text-slide text-center">
                         <h1 class="hero-title"><?php echo htmlspecialchars($evento['nombre']); ?></h1>
                         <p class="hero-subtitle"><?php echo substr(htmlspecialchars($evento['descripcion']), 0, 150); ?>...</p>
                         <div class="hero-event-meta">
@@ -32,7 +32,7 @@ $eventos_grid = $stmt_eventos_grid->fetchAll(PDO::FETCH_ASSOC);
                                 <span><?php echo htmlspecialchars($evento['ciudad']); ?></span>
                             </div>
                         </div>
-                        <a href="/evento/<?php echo htmlspecialchars($evento['slug']); ?>" class="hero-info-link">Más información</a>
+                        <a href="/evento/<?php echo htmlspecialchars($evento['slug']); ?>" class="btn btn-primary">Más información</a>
                     </div>
                 <?php endforeach; ?>
             <?php else: ?>
