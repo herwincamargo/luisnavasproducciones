@@ -37,7 +37,7 @@ $eventos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             </div>
                         </div>
                         <p class="event-description"><?= substr(htmlspecialchars($evento['descripcion']), 0, 100) ?>...</p>
-                        <a href="/evento/<?= htmlspecialchars($evento['slug']) ?>" class="btn-whatsapp">
+                        <a href="/evento/<?= htmlspecialchars($evento['slug']) ?>" class="btn btn-primary">
                             Más información
                         </a>
                     </div>

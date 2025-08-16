@@ -36,7 +36,7 @@ $eventos_grid = $stmt_eventos_grid->fetchAll(PDO::FETCH_ASSOC);
                     </div>
                 <?php endforeach; ?>
             <?php else: ?>
-                <div class="hero-text-slide">
+                <div class="hero-text-slide text-center">
                     <h1 class="hero-title">Conciertos y Eventos Privados</h1>
                     <p class="hero-subtitle">Producción de eventos de primer nivel con logística integral, talento musical y suministro de licores para crear experiencias inolvidables.</p>
                     <a href="#eventos" class="btn btn-primary">Ver Próximos Eventos</a>
