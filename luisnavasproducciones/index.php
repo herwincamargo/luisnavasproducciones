@@ -109,53 +109,55 @@ $eventos_grid = $stmt_eventos_grid->fetchAll(PDO::FETCH_ASSOC);
 <section id="servicios" class="section services-section">
     <div class="container">
         <h2 class="section-title">Nuestros Servicios</h2>
-        <div class="services-grid">
-            <div class="service-card glass-effect">
-                <div class="service-content">
-                    <i class="fas fa-chess-queen"></i>
-                    <h3>Organización Integral</h3>
-                    <p>Coordinamos cada aspecto de tu evento con precisión y atención al detalle.</p>
+        <div class="services-grid-wrapper">
+            <div class="services-grid">
+                <div class="service-card glass-effect">
+                    <div class="service-content">
+                        <i class="fas fa-chess-queen"></i>
+                        <h3>Organización Integral</h3>
+                        <p>Coordinamos cada aspecto de tu evento con precisión y atención al detalle.</p>
+                    </div>
+                    <div class="service-cta">
+                        <a href="https://wa.me/573015017283?text=Hola%20Luis%20Navas%20Producciones,%20quiero%20más%20información%20sobre%20Organización%20Integral" class="btn btn-primary" target="_blank">
+                            Más información
+                        </a>
+                    </div>
                 </div>
-                <div class="service-cta">
-                    <a href="https://wa.me/573015017283?text=Hola%20Luis%20Navas%20Producciones,%20quiero%20más%20información%20sobre%20Organización%20Integral" class="btn btn-primary" target="_blank">
-                        Más información
-                    </a>
+                <div class="service-card glass-effect">
+                    <div class="service-content">
+                        <i class="fas fa-truck-moving"></i>
+                        <h3>Logística de Eventos</h3>
+                        <p>Gestión completa de infraestructura y operación para eventos impecables.</p>
+                    </div>
+                    <div class="service-cta">
+                        <a href="https://wa.me/573015017283?text=Hola%20Luis%20Navas%20Producciones,%20quiero%20más%20información%20sobre%20Logística%20de%20Eventos" class="btn btn-primary" target="_blank">
+                            Más información
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="service-card glass-effect">
-                <div class="service-content">
-                    <i class="fas fa-truck-moving"></i>
-                    <h3>Logística de Eventos</h3>
-                    <p>Gestión completa de infraestructura y operación para eventos impecables.</p>
+                <div class="service-card glass-effect">
+                    <div class="service-content">
+                        <i class="fas fa-music"></i>
+                        <h3>Producción Musical</h3>
+                        <p>Talentos musicales de alta calidad para crear la atmósfera perfecta.</p>
+                    </div>
+                    <div class="service-cta">
+                        <a href="https://wa.me/573015017283?text=Hola%20Luis%20Navas%20Producciones,%20quiero%20más%20información%20sobre%20Producción%20Musical" class="btn btn-primary" target="_blank">
+                            Más información
+                        </a>
+                    </div>
                 </div>
-                <div class="service-cta">
-                    <a href="https://wa.me/573015017283?text=Hola%20Luis%20Navas%20Producciones,%20quiero%20más%20información%20sobre%20Logística%20de%20Eventos" class="btn btn-primary" target="_blank">
-                        Más información
-                    </a>
-                </div>
-            </div>
-            <div class="service-card glass-effect">
-                <div class="service-content">
-                    <i class="fas fa-music"></i>
-                    <h3>Producción Musical</h3>
-                    <p>Talentos musicales de alta calidad para crear la atmósfera perfecta.</p>
-                </div>
-                <div class="service-cta">
-                    <a href="https://wa.me/573015017283?text=Hola%20Luis%20Navas%20Producciones,%20quiero%20más%20información%20sobre%20Producción%20Musical" class="btn btn-primary" target="_blank">
-                        Más información
-                    </a>
-                </div>
-            </div>
-            <div class="service-card glass-effect">
-                <div class="service-content">
-                    <i class="fas fa-wine-glass-alt"></i>
-                    <h3>Abastecimiento Premium</h3>
-                    <p>Selección exclusiva de licores y bebidas para tu evento.</p>
-                </div>
-                <div class="service-cta">
-                    <a href="https://wa.me/573015017283?text=Hola%20Luis%20Navas%20Producciones,%20quiero%20más%20información%20sobre%20Abastecimiento%20Premium" class="btn btn-primary" target="_blank">
-                        Más información
-                    </a>
+                <div class="service-card glass-effect">
+                    <div class="service-content">
+                        <i class="fas fa-wine-glass-alt"></i>
+                        <h3>Abastecimiento Premium</h3>
+                        <p>Selección exclusiva de licores y bebidas para tu evento.</p>
+                    </div>
+                    <div class="service-cta">
+                        <a href="https://wa.me/573015017283?text=Hola%20Luis%20Navas%20Producciones,%20quiero%20más%20información%20sobre%20Abastecimiento%20Premium" class="btn btn-primary" target="_blank">
+                            Más información
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
