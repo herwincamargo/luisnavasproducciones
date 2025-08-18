@@ -1,16 +1,26 @@
 .btn {
-    display: inline-block;
-    padding: 12px 28px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 30px;
     border-radius: 50px;
-    text-align: center;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    border: 2px solid transparent;
-    transition: all 0.4s ease;
-    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    cursor: none; /* Mantener consistencia con el cursor personalizado */
+}
+
+.btn-primary {
+    background: var(--white);
+    color: var(--black);
+    border: 2px solid var(--white);
+}
+
+.btn-primary:hover {
+    background: transparent;
+    color: var(--white);
 }
 
 .hero-text-slide {
@@ -42,10 +52,26 @@
     justify-content: center;
 }
 
+.services-grid-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
 .services-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
+    max-width: 800px; /* Opcional: para limitar el ancho en pantallas grandes */
+    width: 100%;
+}
+
+.cta-content-horizontal {
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap; /* Para que se ajuste en pantallas pequeñas */
 }
 
 .events-section, .events-page-section {
