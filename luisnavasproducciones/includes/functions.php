@@ -24,4 +24,22 @@ function slugify($text) {
 
     return $text;
 }
+
+function format_date_spanish($date_string) {
+    if (empty($date_string)) {
+        return '';
+    }
+
+    // Establecer el locale a español
+    setlocale(LC_TIME, 'es_ES.UTF-8', 'es_ES', 'esp');
+
+    $timestamp = strtotime($date_string);
+
+    if ($timestamp === false) {
+        return '';
+    }
+
+    // Formatear la fecha usando strftime
+    return strftime('%d %b %Y', $timestamp);
+}
 ?>
