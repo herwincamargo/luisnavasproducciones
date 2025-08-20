@@ -25,7 +25,7 @@ $eventos_grid = $stmt_eventos_grid->fetchAll(PDO::FETCH_ASSOC);
                         <div class="hero-event-meta">
                             <div class="event-date">
                                 <i class="far fa-calendar-alt"></i>
-                                <span><?php echo format_date_spanish($evento['fecha']); ?></span>
+                                <span><?php echo date('d M Y', strtotime($evento['fecha'])); ?></span>
                             </div>
                             <div class="event-location">
                                 <i class="fas fa-map-marker-alt"></i>
@@ -64,7 +64,7 @@ $eventos_grid = $stmt_eventos_grid->fetchAll(PDO::FETCH_ASSOC);
                             <div class="event-meta">
                                 <div class="event-date">
                                     <i class="far fa-calendar-alt"></i>
-                                    <span><?php echo format_date_spanish($evento['fecha']); ?></span>
+                                    <span><?php echo date('d M Y', strtotime($evento['fecha'])); ?></span>
                                 </div>
                                 <div class="event-location">
                                     <i class="fas fa-map-marker-alt"></i>
@@ -256,7 +256,7 @@ $eventos_grid = $stmt_eventos_grid->fetchAll(PDO::FETCH_ASSOC);
                 <h2 class="cta-title">Organiza tu Concierto o Evento Privado con Nosotros</h2>
                 <p class="cta-subtitle">Transformamos tus ideas en experiencias inolvidables con producción profesional y atención personalizada.</p>
             </div>
-            <a href="https://wa.me/573015017283?text=Hola%20Luis%20Navas%20Producciones,%20quiero%20organizar%20un%20evento%20privado%20o%20concierto" class="btn btn-primary" target="_blank">
+            <a href="https://wa.me/573015017283?text=Hola%20Luis%20Navas%20Producciones,%20quiero%20organizar%20un%20evento%20privado%20o%20concierto" class="btn btn-cta-white" target="_blank">
                 Contáctanos ahora
             </a>
         </div>
