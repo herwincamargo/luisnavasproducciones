@@ -1,3 +1,5 @@
+/* ===== Contenido de final-design.css ===== */
+
 /* ===== ESTILOS PREMIUM ===== */
 :root {
     --black: #000000;
@@ -765,4 +767,67 @@ textarea.form-control {
     .footer-links {
         gap: 15px;
     }
+}
+
+
+/* ===== Contenido de custom.css ===== */
+
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid transparent;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.hero-text-slide {
+    opacity: 1 !important;
+}
+
+.hero-info-link {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: underline;
+    transition: all 0.3s ease;
+}
+
+.hero-info-link:hover {
+    transform: scale(1.05);
+    color: var(--accent);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-center .hero-event-meta {
+    justify-content: center;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.events-section, .events-page-section {
+    background: var(--black);
+}
+
+/* Force hero button visibility */
+.hero-text-slide .btn-primary {
+    opacity: 1 !important;
+    visibility: visible !important;
 }

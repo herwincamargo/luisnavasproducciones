@@ -31,13 +31,13 @@
 
     <!-- Preload -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Inter:wght@400;500;600&display=swap" as="style">
-    <link rel="preload" href="/assets/css/final-design.css" as="style">
+    <link rel="preload" href="/assets/css/style.css" as="style">
     <link rel="preload" href="/assets/images/logo.png" as="image">
 
     <!-- CSS -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Inter:wght@400;500;600&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="/assets/css/final-design.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
     <!-- Preloader -->

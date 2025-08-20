@@ -8,16 +8,16 @@ $stmt->execute();
 $eventos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<div class="section events-page-section" style="background: var(--black);">
-    <div class="container text-center">
-        <div class="page-title" style="padding: 60px 0;">
+<div class="section events-page-section">
+    <div class="container">
+        <div class="page-title text-center" style="padding: 60px 0; background: var(--dark-gray); border-radius: 12px;">
             <h1 class="hero-title">Todos Nuestros Eventos</h1>
             <p class="hero-subtitle">Explora nuestro archivo completo de eventos pasados y futuros.</p>
         </div>
 
         <div class="events-grid mt-6">
             <?php if (empty($eventos)): ?>
-                <p>No hay eventos para mostrar.</p>
+                <p class="text-center">No hay eventos para mostrar.</p>
             <?php else: ?>
                 <?php foreach($eventos as $evento): ?>
                 <div class="event-card">
@@ -29,7 +29,7 @@ $eventos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <div class="event-meta">
                             <div class="event-date">
                                 <i class="far fa-calendar-alt"></i>
-                                <span><?= format_date_spanish($evento['fecha']) ?></span>
+                                <span><?= date('d M Y', strtotime($evento['fecha'])) ?></span>
                             </div>
                             <div class="event-location">
                                 <i class="fas fa-map-marker-alt"></i>
