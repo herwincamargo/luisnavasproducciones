@@ -19,19 +19,19 @@ if (!$evento) {
 }
 ?>
 
-<div class="section">
-    <div class="container">
+<div class="section" style="background: var(--black);">
+    <div class="container text-center">
         <!-- Título de página simple con fondo oscuro -->
-        <div class="page-title text-center" style="padding: 60px 0; background: var(--dark-gray); border-radius: 12px;">
+        <div class="page-title" style="padding: 60px 0;">
              <h1 class="hero-title"><?= htmlspecialchars($evento['nombre']) ?></h1>
              <p class="hero-subtitle">
-                <i class="far fa-calendar-alt"></i> <?= date('d F, Y', strtotime($evento['fecha'])) ?>
+                <i class="far fa-calendar-alt"></i> <?= format_date_spanish($evento['fecha']) ?>
                 <span style="margin: 0 10px;">|</span>
                 <i class="fas fa-map-marker-alt"></i> <?= htmlspecialchars($evento['lugar']) ?>, <?= htmlspecialchars($evento['ciudad']) ?>
              </p>
         </div>
 
-        <div class="grid cols-2 mt-6" style="gap: 40px; align-items: flex-start;">
+        <div class="grid cols-2 mt-6" style="gap: 40px; align-items: flex-start; text-align: left;">
             <div>
                 <img src="/assets/uploads/<?= htmlspecialchars($evento['imagen']) ?>" alt="<?= htmlspecialchars($evento['nombre']) ?>" style="border-radius: 12px; width: 100%;">
             </div>

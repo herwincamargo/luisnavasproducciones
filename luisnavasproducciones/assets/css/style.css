@@ -770,21 +770,30 @@ textarea.form-control {
 }
 
 
-/* ===== Contenido de custom.css ===== */
+/* ===== Contenido de custom.css (Corregido) ===== */
 
 .btn {
-    display: inline-block;
-    padding: 12px 28px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 30px;
     border-radius: 50px;
-    text-align: center;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    border: 2px solid transparent;
-    transition: all 0.4s ease;
-    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: var(--white);
+    color: var(--black);
+    border: 2px solid var(--white);
+}
+
+.btn-primary:hover {
+    background: transparent;
+    color: var(--white);
 }
 
 .hero-text-slide {
