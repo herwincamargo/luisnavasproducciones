@@ -786,14 +786,14 @@ textarea.form-control {
 }
 
 .btn-primary {
-    background: var(--white);
-    color: var(--black);
+    background: transparent;
+    color: var(--white);
     border: 2px solid var(--white);
 }
 
 .btn-primary:hover {
-    background: transparent;
-    color: var(--white);
+    background: var(--white);
+    color: var(--black);
 }
 
 .hero-text-slide {

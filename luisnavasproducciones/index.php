@@ -2,46 +2,20 @@
 include 'includes/header.php';
 include 'includes/config.php';
 
-// Obtener los últimos 3 eventos para el carrusel del hero
-$stmt_hero = $conn->prepare("SELECT * FROM eventos ORDER BY fecha DESC LIMIT 3");
-$stmt_hero->execute();
-$hero_eventos = $stmt_hero->fetchAll(PDO::FETCH_ASSOC);
-
 // Obtener los últimos 6 eventos para el grid
 $stmt_eventos_grid = $conn->prepare("SELECT * FROM eventos ORDER BY fecha DESC LIMIT 6");
 $stmt_eventos_grid->execute();
 $eventos_grid = $stmt_eventos_grid->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<!-- Hero Section - Dynamic Text Carousel -->
+<!-- Hero Section - Static -->
 <section id="inicio" class="hero">
     <div class="container">
         <div class="hero-content-wrapper">
-            <?php if (!empty($hero_eventos)): ?>
-                <?php foreach($hero_eventos as $index => $evento): ?>
-                    <div class="hero-text-slide text-center">
-                        <h1 class="hero-title"><?php echo htmlspecialchars($evento['nombre']); ?></h1>
-                        <p class="hero-subtitle"><?php echo substr(htmlspecialchars($evento['descripcion']), 0, 150); ?>...</p>
-                        <div class="hero-event-meta">
-                            <div class="event-date">
-                                <i class="far fa-calendar-alt"></i>
-                                <span><?php echo date('d M Y', strtotime($evento['fecha'])); ?></span>
-                            </div>
-                            <div class="event-location">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span><?php echo htmlspecialchars($evento['ciudad']); ?></span>
-                            </div>
-                        </div>
-                        <a href="/evento/<?php echo htmlspecialchars($evento['slug']); ?>" class="btn btn-primary">Más información</a>
-                    </div>
-                <?php endforeach; ?>
-            <?php else: ?>
-                <div class="hero-text-slide text-center">
-                    <h1 class="hero-title">Conciertos y Eventos Privados</h1>
-                    <p class="hero-subtitle">Producción de eventos de primer nivel con logística integral, talento musical y suministro de licores para crear experiencias inolvidables.</p>
-                    <a href="#eventos" class="btn btn-primary">Ver Próximos Eventos</a>
-                </div>
-            <?php endif; ?>
+            <div class="hero-text-slide text-center" style="opacity: 1; position: relative;">
+                <h1 class="hero-title">CONCIERTOS Y EVENTOS PRIVADOS</h1>
+                <p class="hero-subtitle">INSPIRATE EN LOS SERVICIOS QUE OFRECEMOS.</p>
+            </div>
         </div>
     </div>
 </section>
